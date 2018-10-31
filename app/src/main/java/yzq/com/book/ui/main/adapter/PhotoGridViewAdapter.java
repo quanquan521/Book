@@ -1,4 +1,4 @@
-package yzq.com.book.ui.adapter;
+package yzq.com.book.ui.main.adapter;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;

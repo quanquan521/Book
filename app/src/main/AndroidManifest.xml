@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="yzq.com.book.ui.AllApp"
+            android:name="yzq.com.book.ui.test.AllApp"
             android:label="@string/title_activity_all_app"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="yzq.com.book.ui.test.ui.Ball"></activity>

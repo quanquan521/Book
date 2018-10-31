@@ -1,4 +1,4 @@
-package yzq.com.book.ui.util;
+package yzq.com.book.ui.test.util;
 /**
  * Created by 无敌小圈圈
  */
@@ -12,7 +12,7 @@ import android.graphics.drawable.Drawable;
 import java.util.ArrayList;
 import java.util.List;
 
-import yzq.com.book.ui.bean.AppInfo;
+import yzq.com.book.ui.test.bean.AppInfo;
 
 /**
  *

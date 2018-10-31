@@ -1,4 +1,4 @@
-package yzq.com.book.ui;
+package yzq.com.book.ui.test;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -12,9 +12,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import yzq.com.book.R;
-import yzq.com.book.ui.adapter.AppManagerAdapter;
-import yzq.com.book.ui.bean.AppInfo;
-import yzq.com.book.ui.util.AppInfoService;
 
 public class AllApp extends CoreBaseActivity {
     @BindView(R.id.listView)ListView listView;
@@ -41,7 +38,7 @@ public class AllApp extends CoreBaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        AppManagerAdapter appManagerAdapter=new AppManagerAdapter(this,userAppInfos);
+        yzq.com.book.ui.test.adapter.AppManagerAdapter appManagerAdapter=new AppManagerAdapter(this,userAppInfos);
         listView.setAdapter(appManagerAdapter);
         AppInfoService appInfoService = new AppInfoService(this);
         //包管理器

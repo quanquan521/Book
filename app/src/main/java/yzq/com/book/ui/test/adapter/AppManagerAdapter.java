@@ -1,4 +1,4 @@
-package yzq.com.book.ui.adapter;
+package yzq.com.book.ui.test.adapter;
 /**
  * Created by 无敌小圈圈
  */
@@ -27,7 +27,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import yzq.com.book.R;
-import yzq.com.book.ui.bean.AppInfo;
+import yzq.com.book.ui.test.bean.AppInfo;
 
 /**
  * App管理的Adapter类

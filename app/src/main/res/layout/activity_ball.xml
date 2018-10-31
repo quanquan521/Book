@@ -8,7 +8,7 @@
     android:background="@color/gray"
     android:gravity="center"
     >
-   <yzq.com.book.ui.test.view.BubbleView
+   <yzq.com.book.widget.BubbleView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content" />
 

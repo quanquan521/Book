@@ -16,8 +16,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import yzq.com.book.R;
-import yzq.com.book.ui.adapter.PhotoGridViewAdapter;
-import yzq.com.book.ui.test.ui.Ball;
+import yzq.com.book.ui.main.adapter.PhotoGridViewAdapter;
 
 public class MainActivity extends CoreBaseActivity {
     @BindView(R.id.navigation_view)NavigationView navigationView;
@@ -68,7 +67,7 @@ public class MainActivity extends CoreBaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if(i==adapterView.getChildCount()-1){
-                    startActivity(Ball.class);
+
                 }else {
 
                 }
