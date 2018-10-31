@@ -25,7 +25,7 @@ import me.yokeyword.fragmentation.Fragmentation;
 public class App extends CoreApp {
     @Override
     public String setBaseUrl() {
-        return null;
+        return "http://120.78.65.69:8080/Book";
     }
 
     @Override

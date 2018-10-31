@@ -1,4 +1,4 @@
-package yzq.com.book;
+package yzq.com.book.ui.main;
 
 import android.os.Bundle;
 
@@ -9,7 +9,8 @@ import com.hpw.mvpframe.utils.helper.RxUtil;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import yzq.com.book.ui.MainActivity;
+import yzq.com.book.R;
+import yzq.com.book.ui.main.MainActivity;
 
 public class SplashActivity extends CoreBaseActivity {
 

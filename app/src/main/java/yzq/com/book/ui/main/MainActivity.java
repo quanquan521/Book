@@ -1,4 +1,4 @@
-package yzq.com.book.ui;
+package yzq.com.book.ui.main;
 
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;

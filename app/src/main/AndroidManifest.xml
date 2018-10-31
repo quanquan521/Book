@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="yzq.com.book.ui.MainActivity"
+            android:name="yzq.com.book.ui.main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="yzq.com.book.SplashActivity"
+            android:name="yzq.com.book.ui.main.SplashActivity"
             android:theme="@style/AppWelcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
