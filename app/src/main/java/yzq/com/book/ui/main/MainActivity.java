@@ -17,14 +17,20 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import yzq.com.book.R;
 import yzq.com.book.ui.main.adapter.PhotoGridViewAdapter;
+import yzq.com.book.ui.main.bean.SortBean;
+import yzq.com.book.ui.main.contract.MainContract;
+import yzq.com.book.ui.main.model.MainModel;
+import yzq.com.book.ui.main.presenter.MainPresenter;
 
-public class MainActivity extends CoreBaseActivity {
+public class MainActivity extends CoreBaseActivity<MainPresenter,MainModel> implements MainContract.MainView{
     @BindView(R.id.navigation_view)NavigationView navigationView;
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.drawerLayout)DrawerLayout drawerlayout;
     private ActionBarDrawerToggle mDrawerToggle;
     @BindView(R.id.gridview)GridView gridView;
     ArrayList list=new ArrayList();
+    PhotoGridViewAdapter adapter;
+
     @Override
     public boolean isOpen() {
         return true;
@@ -61,7 +67,7 @@ public class MainActivity extends CoreBaseActivity {
         };
         mDrawerToggle.syncState();
         drawerlayout.setDrawerListener(mDrawerToggle);
-        PhotoGridViewAdapter adapter=new PhotoGridViewAdapter(this,list,true);
+        adapter=new PhotoGridViewAdapter(this,list,false);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -79,5 +85,16 @@ public class MainActivity extends CoreBaseActivity {
     public void initParms(Bundle parms) {
 
     }
+    @Override
+    protected void initData() {
+        mPresenter.getSort();
+    }
 
+    @Override
+    public void showSort(SortBean bean) {
+        list.clear();
+        list.addAll(bean.getData());
+        adapter.notifyDataSetChanged();
+
+    }
 }

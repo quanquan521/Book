@@ -72,7 +72,10 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         if (this instanceof CoreBaseView) mPresenter.attachVM(this, mModel);
         this.initView(savedInstanceState);
         AppManager.getAppManager().addActivity(this);
+        initData();
     }
+
+    protected void initData(){};
 
     @Override
     protected void onDestroy() {

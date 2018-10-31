@@ -2,16 +2,21 @@ package yzq.com.book.ui.main.adapter;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 import yzq.com.book.App;
 import yzq.com.book.R;
+import yzq.com.book.ui.main.bean.SortBean;
 
 /**
  * Created by Alex on 2017/3/24.
@@ -59,16 +64,17 @@ public class PhotoGridViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = View.inflate(mContext, R.layout.item_photo, null);
+       /* convertView.setLayoutParams(new LinearLayout.LayoutParams(App.SCREEN_WIDTH/3,App.SCREEN_WIDTH/3));*/
         ImageView photo=convertView.findViewById(R.id.photo);
-        convertView.setLayoutParams(new LinearLayout.LayoutParams(App.SCREEN_WIDTH/3,App.SCREEN_WIDTH/3));
-        ViewGroup.LayoutParams params = photo.getLayoutParams();
-        photo.setLayoutParams(params);
+        photo.setLayoutParams(new LinearLayout.LayoutParams(App.SCREEN_WIDTH/3,App.SCREEN_WIDTH/3));
+        TextView name=convertView.findViewById(R.id.name);
+        name.setText(((SortBean.DataBean)mList.get(position)).getName());
         if (position == mList.size()) {
             photo.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.photo_evaluation_));
         }else {
-
+            if (!TextUtils.isEmpty(((SortBean.DataBean)mList.get(position)).getImg()))
+            Glide.with(mContext).load(((SortBean.DataBean)mList.get(position)).getImg()).into(photo);
         }
-
         return convertView;
     }
     public void setListner(MyListner listner){

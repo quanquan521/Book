@@ -12,6 +12,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import yzq.com.book.R;
+import yzq.com.book.ui.test.adapter.AppManagerAdapter;
+import yzq.com.book.ui.test.bean.AppInfo;
+import yzq.com.book.ui.test.util.AppInfoService;
 
 public class AllApp extends CoreBaseActivity {
     @BindView(R.id.listView)ListView listView;
