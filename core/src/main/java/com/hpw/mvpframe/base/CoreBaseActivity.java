@@ -182,8 +182,9 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
      */
     public void startActivity(Class<? extends Activity> tarActivity, Bundle options) {
         Intent intent = new Intent(this, tarActivity);
+        intent.putExtras(options);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            startActivity(intent, options);
+            startActivity(intent);
         } else {
             startActivity(intent);
         }

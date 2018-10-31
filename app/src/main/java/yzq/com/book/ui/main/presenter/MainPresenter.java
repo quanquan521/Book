@@ -34,7 +34,7 @@ public class MainPresenter extends MainContract.MainPresenter{
                                public void accept(SortBean data) throws Exception {
                                    mView.showSort(data);
                                }
-                           },  new Consumer<Throwable>() {
+                           }, new Consumer<Throwable>() {
                                @Override
                                public void accept(Throwable throwable) throws Exception {
                                    mView.showError(ErrorInfoUtils.parseHttpErrorInfo(throwable));

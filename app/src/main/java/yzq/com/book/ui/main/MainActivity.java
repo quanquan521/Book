@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import yzq.com.book.R;
+import yzq.com.book.ui.booklist.BookListActivity;
 import yzq.com.book.ui.main.adapter.PhotoGridViewAdapter;
 import yzq.com.book.ui.main.bean.SortBean;
 import yzq.com.book.ui.main.contract.MainContract;
@@ -72,11 +73,10 @@ public class MainActivity extends CoreBaseActivity<MainPresenter,MainModel> impl
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(i==adapterView.getChildCount()-1){
-
-                }else {
-
-                }
+                Bundle bundle=new Bundle();
+                bundle.putInt("id",((SortBean.DataBean)list.get(i)).getId());
+                bundle.putString("title",((SortBean.DataBean)list.get(i)).getName());
+                startActivity(BookListActivity.class,bundle);
             }
         });
     }
