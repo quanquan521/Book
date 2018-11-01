@@ -29,7 +29,8 @@
             android:name=".ui.test.AllApp"
             android:label="@string/title_activity_all_app"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.booklist.BookListActivity"></activity>
+        <activity android:name=".ui.booklist.BookListActivity" />
+        <activity android:name=".ui.read.ReadActivity"></activity>
     </application>
 
 </manifest>

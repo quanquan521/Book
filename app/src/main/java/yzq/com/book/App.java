@@ -3,10 +3,14 @@ package yzq.com.book;
  * Created by 无敌小圈圈
  */
 
+import android.content.Context;
+
 import com.hpw.mvpframe.CoreApp;
 import com.hpw.mvpframe.utils.SpUtil;
 
 import me.yokeyword.fragmentation.Fragmentation;
+import yzq.com.book.util.AppUtils;
+import yzq.com.book.util.SharedPreferencesUtil;
 
 /**
  *
@@ -23,6 +27,7 @@ import me.yokeyword.fragmentation.Fragmentation;
  *
  */
 public class App extends CoreApp {
+    App instance;
     @Override
     public String setBaseUrl() {
         return "http://120.78.65.69:8080/Book/";
@@ -31,6 +36,9 @@ public class App extends CoreApp {
     @Override
     public void onCreate() {
         super.onCreate();
+        instance=this;
+        SharedPreferencesUtil.init(this,"book",Context.MODE_PRIVATE);
+        AppUtils.init(this);
         SpUtil.init(this);
         getScreenSize();
         Fragmentation.builder()
@@ -39,4 +47,6 @@ public class App extends CoreApp {
                 .debug(BuildConfig.DEBUG)
                 .install();
     }
+
+
 }
