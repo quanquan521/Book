@@ -37,7 +37,7 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
     @BindView(R.id.fl_page)FrameLayout flReadWidget;
     @BindView(R.id.rlBookReadRoot) RelativeLayout mRlBookReadRoot;
     private BaseReadView mPageWidget;
-    private String bookId="577e5290260289ff64a29213";
+    private String bookId="1";
     /**
      * 是否开始阅读章节
      **/
@@ -151,7 +151,8 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
         if (CacheManager.getInstance().getChapterFile(bookId, currentChapter) != null) {
             showChapterRead(null, currentChapter);
         } else {
-            mPresenter.getChapterRead(mChapterList.get(currentChapter - 1).link, currentChapter);
+         //   mPresenter.getChapterRead(mChapterList.get(currentChapter - 1).link, currentChapter);
+            mPresenter.getChapterRead(bookId, currentChapter);
         }
     }
     public synchronized void showChapterRead(ChapterRead.Chapter data, int chapter) { // 加载章节内容

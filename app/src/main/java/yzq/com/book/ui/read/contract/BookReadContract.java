@@ -29,12 +29,12 @@ import yzq.com.book.ui.main.bean.SortBean;
 public interface BookReadContract {
 
     abstract class BookReadPresenter extends CoreBasePresenter<BookReadModel,BookReadView>{
-        public abstract void getBookMixAToc(String bookId, String viewChapters);
-        public abstract void getChapterRead(String link, int currentChapter);
+        public abstract void getBookMixAToc(String book_id, String viewChapters);
+        public abstract void getChapterRead(String book_id, int currentChapter);
     }
     interface BookReadModel extends CoreBaseModel {
-        Observable<BookMixAToc.mixToc> getBookMixAToc(String bookId, String viewChapters);
-        Observable<ChapterRead> getChapterRead(String link, int currentChapter);
+        Observable<BookMixAToc.mixToc> getBookMixAToc(String book_id, String viewChapters);
+        Observable<ChapterRead> getChapterRead(String book_id, int currentChapter);
     }
 
     interface BookReadView extends CoreBaseView {

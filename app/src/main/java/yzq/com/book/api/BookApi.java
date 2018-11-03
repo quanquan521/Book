@@ -16,7 +16,10 @@
 package yzq.com.book.api;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import yzq.com.book.bean.BookMixAToc;
@@ -29,8 +32,10 @@ import yzq.com.book.bean.ChapterRead;
  * @date 2016/8/3.
  */
 public interface BookApi {
-    @GET("/mix-atoc/{bookId}")
-    Observable<BookMixAToc.mixToc> getBookMixAToc(@Path("bookId") String bookId, @Query("view") String view);
-    @GET("/chapter/{url}")
-    Observable<ChapterRead> getChapterRead(@Path("url") String url);
+    @FormUrlEncoded
+    @POST("chapters")
+    Observable<BookMixAToc.mixToc> getBookMixAToc(@Field("book_id") String book_id);
+    @FormUrlEncoded
+    @POST("chapterRead")
+    Observable<ChapterRead> getChapterRead(@Field("book_id")String book_id,@Field("chapter_id")int chapter_id);
 }

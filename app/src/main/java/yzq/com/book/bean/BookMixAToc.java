@@ -30,7 +30,7 @@ public class BookMixAToc extends Base {
      */
     public mixToc mixToc;
     public static class mixToc implements Serializable {
-        public String _id;
+        public String book_id;
         public String book;
         public String chaptersUpdated;
         /**

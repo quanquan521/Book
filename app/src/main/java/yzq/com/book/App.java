@@ -30,7 +30,7 @@ public class App extends CoreApp {
     App instance;
     @Override
     public String setBaseUrl() {
-        return "http://120.78.65.69:8080/Book/";
+        return "http://192.168.2.180:8080/Book/";
     }
 
     @Override

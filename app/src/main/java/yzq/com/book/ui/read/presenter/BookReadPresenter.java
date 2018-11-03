@@ -47,14 +47,14 @@ public class BookReadPresenter extends BookReadContract.BookReadPresenter{
          }, new Consumer<Throwable>() {
              @Override
              public void accept(Throwable throwable) throws Exception {
-
+             throw   new Exception(throwable);
              }
          }));
     }
 
     @Override
-    public void getChapterRead(String link, int currentChapter) {
-       mRxManager.add(mModel.getChapterRead(link,currentChapter).subscribe(new Consumer<ChapterRead>() {
+    public void getChapterRead(String book_id, int currentChapter) {
+       mRxManager.add(mModel.getChapterRead(book_id,currentChapter).subscribe(new Consumer<ChapterRead>() {
            @Override
            public void accept(ChapterRead chapterRead) throws Exception {
                mView.showChapterRead(chapterRead.chapter,currentChapter);
@@ -62,7 +62,7 @@ public class BookReadPresenter extends BookReadContract.BookReadPresenter{
        }, new Consumer<Throwable>() {
            @Override
            public void accept(Throwable throwable) throws Exception {
-
+               mView.showError(ErrorInfoUtils.parseHttpErrorInfo(throwable));
            }
        }));
     }

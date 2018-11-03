@@ -40,13 +40,7 @@ public class RxService {
     public static <T> T createApi(Class<T> clazz) {
         return createApi(clazz, CoreApp.getInstance().setBaseUrl());
     }
-    public static <T> T createApiZhuiShu(Class<T> clazz) {
-        return createApi(clazz, "http://vip.zhuishushenqi.com");
-    }
 
-    public static <T> T createApiZhuiShu1(Class<T> clazz) {
-        return createApi(clazz, "http://chapter2.zhuishushenqi.com");
-    }
     public static <T> T createApi(Class<T> clazz, String url) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
