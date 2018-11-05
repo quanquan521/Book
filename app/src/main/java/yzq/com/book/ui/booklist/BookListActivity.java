@@ -40,7 +40,7 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(ReadActivity.class);
+              ReadActivity.startActivity(((BookBean.DataBean)list.get(i)).getId()+"");
             }
         });
     }

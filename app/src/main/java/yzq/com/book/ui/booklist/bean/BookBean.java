@@ -72,24 +72,24 @@ public class BookBean {
          * img : http://120.78.65.69:8080/Book/images/java.jpg
          */
 
-        private int id;
-        private String name;
+        private int book_id;
+        private String book;
         private String img;
 
         public int getId() {
-            return id;
+            return book_id;
         }
 
         public void setId(int id) {
-            this.id = id;
+            this.book_id = id;
         }
 
         public String getName() {
-            return name;
+            return book;
         }
 
         public void setName(String name) {
-            this.name = name;
+            this.book = name;
         }
 
         public String getImg() {

@@ -1,5 +1,6 @@
 package yzq.com.book.ui.read;
 
+import android.content.Intent;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import yzq.com.book.App;
 import yzq.com.book.Constant;
 import yzq.com.book.R;
 import yzq.com.book.bean.BookMixAToc;
@@ -37,7 +39,7 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
     @BindView(R.id.fl_page)FrameLayout flReadWidget;
     @BindView(R.id.rlBookReadRoot) RelativeLayout mRlBookReadRoot;
     private BaseReadView mPageWidget;
-    private String bookId="1";
+    private String bookId;
     /**
      * 是否开始阅读章节
      **/
@@ -58,12 +60,19 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        SharedPreferencesUtil.getInstance().putInt("flipStyle",1);
         initPagerWidget();
     }
 
     @Override
     public void initParms(Bundle parms) {
-
+        Intent intent=getIntent();
+        bookId=intent.getStringExtra("book_id");
+    }
+    public static void startActivity(String book_id){
+        Intent intent=new Intent(App.getAppContext(),ReadActivity.class);
+        intent.putExtra("book_id",book_id);
+        App.getAppContext().startActivity(intent);
     }
 
     @Override
