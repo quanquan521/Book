@@ -11,7 +11,7 @@
     <item
         android:id="@+id/photo"
         android:icon="@mipmap/ic_launcher"
-        android:title="相册"/>
+        android:title="本地书籍"/>
     <item
         android:id="@+id/file"
         android:icon="@mipmap/ic_launcher"

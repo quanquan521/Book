@@ -7,6 +7,7 @@ import android.content.Context;
 
 import com.hpw.mvpframe.CoreApp;
 import com.hpw.mvpframe.utils.SpUtil;
+import com.mob.MobSDK;
 
 import me.yokeyword.fragmentation.Fragmentation;
 import yzq.com.book.util.AppUtils;
@@ -46,6 +47,7 @@ public class App extends CoreApp {
                 .stackViewMode(Fragmentation.BUBBLE)
                 .debug(BuildConfig.DEBUG)
                 .install();
+        MobSDK.init(this);
     }
 
 

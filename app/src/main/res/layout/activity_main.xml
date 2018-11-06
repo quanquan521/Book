@@ -28,14 +28,6 @@
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.design.widget.NavigationView
-            android:id="@+id/navigation_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="left"
-            app:headerLayout="@layout/menu_header"
-            app:menu="@menu/main">
-        </android.support.design.widget.NavigationView>
         <LinearLayout
             android:orientation="vertical"
             android:background="@color/bg_gray"
@@ -48,6 +40,14 @@
                 android:layout_height="match_parent">
             </GridView>
         </LinearLayout>
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            app:headerLayout="@layout/menu_header"
+            app:menu="@menu/main">
+        </android.support.design.widget.NavigationView>
     </android.support.v4.widget.DrawerLayout>
 
 </LinearLayout>
