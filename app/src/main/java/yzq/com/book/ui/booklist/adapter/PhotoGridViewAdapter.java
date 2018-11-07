@@ -69,7 +69,7 @@ public class PhotoGridViewAdapter extends BaseAdapter {
         ImageView photo=convertView.findViewById(R.id.photo);
         photo.setLayoutParams(new LinearLayout.LayoutParams(App.SCREEN_WIDTH/3,App.SCREEN_WIDTH/3));
         TextView name=convertView.findViewById(R.id.name);
-        name.setText(((BookBean.DataBean)mList.get(position)).getName());
+        name.setText(((BookBean.DataBean)mList.get(position)).getBook());
         if (position == mList.size()) {
             photo.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.photo_evaluation_));
         }else {

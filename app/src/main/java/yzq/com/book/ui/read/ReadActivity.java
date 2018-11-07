@@ -39,7 +39,7 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
     @BindView(R.id.fl_page)FrameLayout flReadWidget;
     @BindView(R.id.rlBookReadRoot) RelativeLayout mRlBookReadRoot;
     private BaseReadView mPageWidget;
-    private String bookId;
+    private String bookId="1";
     /**
      * 是否开始阅读章节
      **/
@@ -60,19 +60,19 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        SharedPreferencesUtil.getInstance().putInt("flipStyle",1);
         initPagerWidget();
+    }
+
+    public static void startActivity(String book_id){
+        Intent intent=new Intent(App.getAppContext(),ReadActivity.class);
+        intent.putExtra("book_id",book_id);
+        App.getAppContext().startActivity(intent);
     }
 
     @Override
     public void initParms(Bundle parms) {
         Intent intent=getIntent();
         bookId=intent.getStringExtra("book_id");
-    }
-    public static void startActivity(String book_id){
-        Intent intent=new Intent(App.getAppContext(),ReadActivity.class);
-        intent.putExtra("book_id",book_id);
-        App.getAppContext().startActivity(intent);
     }
 
     @Override

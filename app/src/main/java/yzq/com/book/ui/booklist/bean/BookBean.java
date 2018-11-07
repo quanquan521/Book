@@ -24,8 +24,8 @@ public class BookBean {
     /**
      * code : 200
      * msg : 访问成功！
-     * time : 1540957725356
-     * data : [{"id":1,"name":"Java","img":"http://120.78.65.69:8080/Book/images/java.jpg"},{"id":2,"name":"Adroid","img":null}]
+     * time : 1541234010793
+     * data : [{"book_id":3,"sort_id":0,"img":"http://120.78.65.69:8080/Book/images/net.jpg","book":"军少霸宠二婚妻","chaptersUpdated":null,"chapters":null}]
      */
 
     private String code;
@@ -67,29 +67,35 @@ public class BookBean {
 
     public static class DataBean {
         /**
-         * id : 1
-         * name : Java
-         * img : http://120.78.65.69:8080/Book/images/java.jpg
+         * book_id : 3
+         * sort_id : 0
+         * img : http://120.78.65.69:8080/Book/images/net.jpg
+         * book : 军少霸宠二婚妻
+         * chaptersUpdated : null
+         * chapters : null
          */
 
         private int book_id;
-        private String book;
+        private int sort_id;
         private String img;
+        private String book;
+        private Object chaptersUpdated;
+        private Object chapters;
 
-        public int getId() {
+        public int getBook_id() {
             return book_id;
         }
 
-        public void setId(int id) {
-            this.book_id = id;
+        public void setBook_id(int book_id) {
+            this.book_id = book_id;
         }
 
-        public String getName() {
-            return book;
+        public int getSort_id() {
+            return sort_id;
         }
 
-        public void setName(String name) {
-            this.book = name;
+        public void setSort_id(int sort_id) {
+            this.sort_id = sort_id;
         }
 
         public String getImg() {
@@ -98,6 +104,30 @@ public class BookBean {
 
         public void setImg(String img) {
             this.img = img;
+        }
+
+        public String getBook() {
+            return book;
+        }
+
+        public void setBook(String book) {
+            this.book = book;
+        }
+
+        public Object getChaptersUpdated() {
+            return chaptersUpdated;
+        }
+
+        public void setChaptersUpdated(Object chaptersUpdated) {
+            this.chaptersUpdated = chaptersUpdated;
+        }
+
+        public Object getChapters() {
+            return chapters;
+        }
+
+        public void setChapters(Object chapters) {
+            this.chapters = chapters;
         }
     }
 }
