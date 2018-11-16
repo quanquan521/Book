@@ -30,7 +30,7 @@ public class BookListPresenter extends BookListContract.BookListPresenter {
     }
 
     @Override
-    public void getBookList(String gender,String type,String major,String minor,String start,String limit) {
+    public void getBookList(String gender,String type,String major,String minor,int start,int limit) {
         mRxManager.add(mModel.getBookList(gender,type,major,minor,start,limit).subscribe(new Consumer<BooksByCats>() {
             @Override
             public void accept(BooksByCats bean) throws Exception {

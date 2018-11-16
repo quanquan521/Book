@@ -26,10 +26,10 @@ import yzq.com.book.ui.booklist.bean.BooksByCats;
  */
 public interface BookListContract {
     abstract class BookListPresenter extends CoreBasePresenter<BookListModel,BookListView>{
-       public abstract void getBookList(String gender, String type, String major, String minor, String start, String limit);
+       public abstract void getBookList(String gender, String type, String major, String minor, int start, int limit);
     }
     interface BookListModel extends CoreBaseModel{
-        Observable<BooksByCats>getBookList(String gender, String type, String major, String minor, String start, String limit);
+        Observable<BooksByCats>getBookList(String gender, String type, String major, String minor, int start, int limit);
 
     }
     interface BookListView extends CoreBaseView{

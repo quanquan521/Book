@@ -107,7 +107,7 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
                 bundle.putString("major",maleBeanList.get(position).getName());
                 bundle.putString("minor","");
                 bundle.putString("start","0");
-                bundle.putString("limit","0");
+                bundle.putString("limit","20");
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

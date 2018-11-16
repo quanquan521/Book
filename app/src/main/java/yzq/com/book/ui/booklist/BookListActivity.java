@@ -2,6 +2,7 @@ package yzq.com.book.ui.booklist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
@@ -18,12 +19,13 @@ import yzq.com.book.ui.booklist.presenter.BookListPresenter;
 
 public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookListModel> implements BookListContract.BookListView{
     @BindView(R.id.title)TextView tv_title;
+    @BindView(R.id.rv)RecyclerView rv;
     String gender;
     String type;
     String major;
     String minor;
-    String start;
-    String limit;
+    int start;
+    int limit;
 
     String title;
     ArrayList list=new ArrayList();
@@ -48,8 +50,8 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
         type=bundle.getString("type");
         major=bundle.getString("major");
         minor=bundle.getString("minor");
-        start=bundle.getString("start");
-        limit=bundle.getString("limit");
+        start=bundle.getInt("start");
+        limit=bundle.getInt("limit");
 
     }
 

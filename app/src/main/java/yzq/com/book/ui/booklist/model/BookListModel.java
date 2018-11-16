@@ -27,7 +27,7 @@ import yzq.com.book.ui.booklist.contract.BookListContract;
  */
 public class BookListModel implements BookListContract.BookListModel {
     @Override
-    public Observable<BooksByCats> getBookList(String gender,String type,String major,String minor,String start,String limit) {
-        return RxService.createApi(BookListApi.class).getBooksByCats(gender,type,major).compose(RxUtil.rxSchedulerHelper());
+    public Observable<BooksByCats> getBookList(String gender,String type,String major,String minor,int start,int limit) {
+        return RxService.createApi(BookListApi.class).getBooksByCats(gender,type,major,start,limit).compose(RxUtil.rxSchedulerHelper());
     }
 }
