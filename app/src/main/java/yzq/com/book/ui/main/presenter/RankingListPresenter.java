@@ -6,8 +6,7 @@ package yzq.com.book.ui.main.presenter;
 import com.hpw.mvpframe.utils.ErrorInfoUtils;
 
 import io.reactivex.functions.Consumer;
-import rx.functions.Action1;
-import yzq.com.book.ui.main.bean.SortBean;
+import yzq.com.book.ui.main.bean.CategoryList;
 import yzq.com.book.ui.main.contract.MainContract;
 
 /**
@@ -24,14 +23,14 @@ import yzq.com.book.ui.main.contract.MainContract;
  *
  *
  */
-public class MainPresenter extends MainContract.MainPresenter{
+public class RankingListPresenter extends MainContract.MainPresenter{
     @Override
     public void getSort() {
         mRxManager.add(mModel
                 .getSort()
-                .subscribe(new Consumer<SortBean>() {
+                .subscribe(new Consumer<CategoryList>() {
                                @Override
-                               public void accept(SortBean data) throws Exception {
+                               public void accept(CategoryList data) throws Exception {
                                    mView.showSort(data);
                                }
                            }, new Consumer<Throwable>() {

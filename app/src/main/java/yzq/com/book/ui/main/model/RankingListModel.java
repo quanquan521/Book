@@ -8,7 +8,7 @@ import com.hpw.mvpframe.utils.helper.RxUtil;
 
 import io.reactivex.Observable;
 import yzq.com.book.api.MainApi;
-import yzq.com.book.ui.main.bean.SortBean;
+import yzq.com.book.ui.main.bean.CategoryList;
 import yzq.com.book.ui.main.contract.MainContract;
 
 /**
@@ -25,9 +25,9 @@ import yzq.com.book.ui.main.contract.MainContract;
  *
  *
  */
-public class MainModel implements MainContract.MainModel {
+public class RankingListModel implements MainContract.MainModel {
     @Override
-    public Observable<SortBean> getSort() {
-        return RxService.createApi(MainApi.class).getSort().compose(RxUtil.rxSchedulerHelper());
+    public Observable<CategoryList> getSort() {
+        return RxService.createApi(MainApi.class).getCategoryList().compose(RxUtil.rxSchedulerHelper());
     }
 }

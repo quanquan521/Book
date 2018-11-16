@@ -8,6 +8,7 @@
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
     android:orientation="vertical"
+    android:background="@color/white"
     >
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -27,12 +28,11 @@
             />
     </android.support.v7.widget.Toolbar>
 
-    <GridView
-        android:background="@color/white"
-        android:numColumns="3"
-        android:id="@+id/gridview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </GridView>
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/rv"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+   </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

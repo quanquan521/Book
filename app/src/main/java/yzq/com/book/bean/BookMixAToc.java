@@ -30,7 +30,7 @@ public class BookMixAToc extends Base {
      */
     public mixToc mixToc;
     public static class mixToc implements Serializable {
-        public String book_id;
+        public String _id;
         public String book;
         public String chaptersUpdated;
         /**
@@ -42,15 +42,15 @@ public class BookMixAToc extends Base {
          * isVip : false
          */
 
-        public List<Chapters> chapters;//章节
+        public List<Chapters> chapters;
 
         public static class Chapters implements Serializable {
-            public String title;//章节标题
-            public String link;//章节链接
-            public String id;//章节id
-            public int currency;//章节价格
-            public boolean unreadble;//是否读过
-            public boolean isVip;//是否是vip
+            public String title;
+            public String link;
+            public String id;
+            public int currency;
+            public boolean unreadble;
+            public boolean isVip;
 
             public Chapters() {
             }

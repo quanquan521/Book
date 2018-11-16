@@ -8,7 +8,7 @@ import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
 
 import io.reactivex.Observable;
-import yzq.com.book.ui.main.bean.SortBean;
+import yzq.com.book.ui.main.bean.CategoryList;
 
 /**
  *
@@ -30,10 +30,10 @@ public interface MainContract {
         public abstract void getSort();
     }
     interface MainModel extends CoreBaseModel {
-        Observable<SortBean> getSort();
+        Observable<CategoryList> getSort();
     }
 
     interface MainView extends CoreBaseView {
-        void  showSort(SortBean bean);
+        void  showSort(CategoryList bean);
     }
 }

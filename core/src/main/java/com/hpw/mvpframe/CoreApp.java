@@ -50,4 +50,5 @@ public abstract class CoreApp extends Application {
     }
 
     public abstract String setBaseUrl();
+    public abstract String setBaseResUrl();
 }

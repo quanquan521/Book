@@ -5,7 +5,8 @@ package yzq.com.book.api;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
-import yzq.com.book.ui.main.bean.SortBean;
+import retrofit2.http.Query;
+import yzq.com.book.ui.main.bean.CategoryList;
 
 /**
  *
@@ -22,6 +23,7 @@ import yzq.com.book.ui.main.bean.SortBean;
  *
  */
 public interface MainApi {
-    @GET("sort")
-    Observable<SortBean> getSort();
+    @GET("/cats/lv2/statistics")
+    Observable<CategoryList> getCategoryList();
+
 }

@@ -31,7 +31,10 @@ public class App extends CoreApp {
     App instance;
     @Override
     public String setBaseUrl() {
-        return "http://120.78.65.69:8080/Book/";
+        return "http://api.zhuishushenqi.com";
+    }
+    public String setBaseResUrl() {
+        return "http://statics.zhuishushenqi.com";
     }
 
     @Override

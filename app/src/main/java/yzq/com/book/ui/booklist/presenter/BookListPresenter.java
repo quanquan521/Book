@@ -6,7 +6,7 @@ package yzq.com.book.ui.booklist.presenter;
 import com.hpw.mvpframe.utils.ErrorInfoUtils;
 
 import io.reactivex.functions.Consumer;
-import yzq.com.book.ui.booklist.bean.BookBean;
+import yzq.com.book.ui.booklist.bean.BooksByCats;
 import yzq.com.book.ui.booklist.contract.BookListContract;
 
 /**
@@ -30,10 +30,10 @@ public class BookListPresenter extends BookListContract.BookListPresenter {
     }
 
     @Override
-    public void getBookList(int id) {
-        mRxManager.add(mModel.getBookList(id).subscribe(new Consumer<BookBean>() {
+    public void getBookList(String gender,String type,String major,String minor,String start,String limit) {
+        mRxManager.add(mModel.getBookList(gender,type,major,minor,start,limit).subscribe(new Consumer<BooksByCats>() {
             @Override
-            public void accept(BookBean bean) throws Exception {
+            public void accept(BooksByCats bean) throws Exception {
                 mView.showBookList(bean);
             }
         }, new Consumer<Throwable>() {

@@ -51,4 +51,5 @@
     <color name="bg_position_bar_up">#0D8BC34A</color>
     <color name="bg_position_bar_down">#1A8BC34A</color>
     <color name="theme_black_7f">#8f000000</color>
+    <color name="devider">#f9f9f9</color>
 </resources>

@@ -4,11 +4,9 @@ package yzq.com.book.api;
  */
 
 import io.reactivex.Observable;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.POST;
-import yzq.com.book.ui.booklist.bean.BookBean;
-import yzq.com.book.ui.main.bean.SortBean;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+import yzq.com.book.ui.booklist.bean.BooksByCats;
 
 /**
  *
@@ -25,7 +23,18 @@ import yzq.com.book.ui.main.bean.SortBean;
  *
  */
 public interface BookListApi {
-    @FormUrlEncoded
-    @POST("bookList")
-    Observable<BookBean> getBookList(@Field("sort_id") int sort_id);
+    /**
+     * 按分类获取书籍列表
+     *
+     * @param gender male、female
+     * @param type   hot(热门)、new(新书)、reputation(好评)、over(完结)
+     * @param major  玄幻
+     * @param //minor  东方玄幻、异界大陆、异界争霸、远古神话
+     * @param //limit  50
+     * @return
+     */
+    @GET("/book/by-categories")
+    Observable<BooksByCats> getBooksByCats(@Query("gender") String gender, @Query("type") String type, @Query("major") String major);
+
+
 }

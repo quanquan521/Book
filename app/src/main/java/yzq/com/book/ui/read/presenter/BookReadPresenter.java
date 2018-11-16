@@ -5,16 +5,10 @@ package yzq.com.book.ui.read.presenter;
 
 import com.hpw.mvpframe.utils.ErrorInfoUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import io.reactivex.functions.Consumer;
 import yzq.com.book.bean.BookMixAToc;
 import yzq.com.book.bean.ChapterRead;
-import yzq.com.book.ui.main.bean.SortBean;
-import yzq.com.book.ui.main.contract.MainContract;
 import yzq.com.book.ui.read.contract.BookReadContract;
-import yzq.com.book.util.StringUtils;
 
 /**
  *

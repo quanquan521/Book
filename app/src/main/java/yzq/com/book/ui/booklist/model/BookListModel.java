@@ -8,7 +8,7 @@ import com.hpw.mvpframe.utils.helper.RxUtil;
 
 import io.reactivex.Observable;
 import yzq.com.book.api.BookListApi;
-import yzq.com.book.ui.booklist.bean.BookBean;
+import yzq.com.book.ui.booklist.bean.BooksByCats;
 import yzq.com.book.ui.booklist.contract.BookListContract;
 
 /**
@@ -27,7 +27,7 @@ import yzq.com.book.ui.booklist.contract.BookListContract;
  */
 public class BookListModel implements BookListContract.BookListModel {
     @Override
-    public Observable<BookBean> getBookList(int id) {
-        return RxService.createApi(BookListApi.class).getBookList(id).compose(RxUtil.rxSchedulerHelper());
+    public Observable<BooksByCats> getBookList(String gender,String type,String major,String minor,String start,String limit) {
+        return RxService.createApi(BookListApi.class).getBooksByCats(gender,type,major).compose(RxUtil.rxSchedulerHelper());
     }
 }

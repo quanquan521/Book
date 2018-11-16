@@ -26,7 +26,7 @@ public class SplashActivity extends CoreBaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        Observable.timer(3000, TimeUnit.MILLISECONDS)
+        Observable.timer(1000, TimeUnit.MILLISECONDS)
                 //统一进程管理
                 .compose(RxUtil.rxSchedulerHelper())
                 .subscribe(permission -> {

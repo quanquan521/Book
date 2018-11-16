@@ -32,6 +32,7 @@ dependencies {
     implementation "com.jakewharton:butterknife:$rootProject.butterknife"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
     implementation project(':core')
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
 }
 MobSDK {
     appKey "289f7cf022774"
@@ -60,5 +61,10 @@ MobSDK {
                 bypassApproval false
             }
         }
+    }
+}
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
     }
 }

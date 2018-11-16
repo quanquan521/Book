@@ -8,11 +8,8 @@ import com.hpw.mvpframe.utils.helper.RxUtil;
 
 import io.reactivex.Observable;
 import yzq.com.book.api.BookApi;
-import yzq.com.book.api.MainApi;
 import yzq.com.book.bean.BookMixAToc;
 import yzq.com.book.bean.ChapterRead;
-import yzq.com.book.ui.main.bean.SortBean;
-import yzq.com.book.ui.main.contract.MainContract;
 import yzq.com.book.ui.read.contract.BookReadContract;
 
 /**

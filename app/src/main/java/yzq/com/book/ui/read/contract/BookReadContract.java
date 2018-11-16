@@ -10,7 +10,6 @@ import com.hpw.mvpframe.base.CoreBaseView;
 import io.reactivex.Observable;
 import yzq.com.book.bean.BookMixAToc;
 import yzq.com.book.bean.ChapterRead;
-import yzq.com.book.ui.main.bean.SortBean;
 
 /**
  *
