@@ -34,10 +34,11 @@
                 android:layout_height="1dp"/>
 
             <RadioGroup
+                android:layout_weight="1"
                 android:id="@+id/radioGroup"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="0dp">
                 <RadioButton
                     android:id="@+id/bookCase"
                     android:text="书架"
@@ -70,6 +71,10 @@
                     android:layout_height="match_parent"  />
 
             </RadioGroup>
+            <View
+                android:background="@color/devider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
         </LinearLayout>
     </LinearLayout>
     <android.support.v4.widget.DrawerLayout

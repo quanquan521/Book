@@ -45,8 +45,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/cover_default"
-                tools:src="@drawable/cover_default" />
+                android:src="@drawable/ssdk_mobile_logo"
+               />
 
             <RelativeLayout
                 android:id="@+id/rlBookListDetail"
@@ -90,7 +90,7 @@
                     android:singleLine="true"
                     android:textColor="@color/common_h3"
                     android:textSize="13sp"
-                     />
+                    />
 
                 <TextView
                     android:id="@+id/tvBookWordCount"
@@ -125,7 +125,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/view_line1"
-                android:src="@drawable/reader_ad_quote" />
+                 />
 
             <TextView
                 android:id="@+id/tvBookDetail"

@@ -71,21 +71,27 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
             @Override
             protected void convert(BaseViewHolder helper, CategoryList.MaleBean item) {
                 helper.setText(R.id.tv,item.getName());
-                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(0)).crossFade().into((ImageView) helper.getView(R.id.iv));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(1)).crossFade().into((ImageView) helper.getView(R.id.iv));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(0)).crossFade().into((ImageView) helper.getView(R.id.iv1));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(2)).crossFade().into((ImageView) helper.getView(R.id.iv2));
             }
         };
         femaleAdapter= new BaseQuickAdapter<CategoryList.FemaleBean, BaseViewHolder>(R.layout.item_catelist,femaleBeanList) {
             @Override
             protected void convert(BaseViewHolder helper, CategoryList.FemaleBean item) {
                 helper.setText(R.id.tv,item.getName());
-                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(0)).crossFade().into((ImageView) helper.getView(R.id.iv));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(1)).crossFade().into((ImageView) helper.getView(R.id.iv));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(0)).crossFade().into((ImageView) helper.getView(R.id.iv1));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(2)).crossFade().into((ImageView) helper.getView(R.id.iv2));
             }
         };
         pictureAdapter= new BaseQuickAdapter<CategoryList.PictureBean, BaseViewHolder>(R.layout.item_catelist,pictureBeanList) {
             @Override
             protected void convert(BaseViewHolder helper, CategoryList.PictureBean item) {
                 helper.setText(R.id.tv,item.getName());
-                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(0)).crossFade().into((ImageView) helper.getView(R.id.iv));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(1)).crossFade().into((ImageView) helper.getView(R.id.iv));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(0)).crossFade().into((ImageView) helper.getView(R.id.iv1));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(2)).crossFade().into((ImageView) helper.getView(R.id.iv2));
             }
         };
 
@@ -106,8 +112,8 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
                 bundle.putString("type","hot");
                 bundle.putString("major",maleBeanList.get(position).getName());
                 bundle.putString("minor","");
-                bundle.putString("start","0");
-                bundle.putString("limit","20");
+                bundle.putInt("start",0);
+                bundle.putInt("limit",20);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

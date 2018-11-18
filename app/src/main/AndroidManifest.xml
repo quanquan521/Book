@@ -14,8 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:name"
-        >
+        tools:replace="android:name">
         <activity
             android:name=".ui.main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -33,7 +32,8 @@
             android:label="@string/title_activity_all_app"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.booklist.BookListActivity" />
-        <activity android:name=".ui.read.ReadActivity"></activity>
+        <activity android:name=".ui.read.ReadActivity" />
+        <activity android:name=".ui.booklist.BookDetail"></activity>
     </application>
 
 </manifest>

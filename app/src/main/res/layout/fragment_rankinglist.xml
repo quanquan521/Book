@@ -10,39 +10,42 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
+                android:background="@drawable/devider"
                 android:padding="@dimen/layout_padding"
                 android:gravity="center"
                 android:text="男生"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <android.support.v7.widget.RecyclerView
+            <yzq.com.book.widget.NoToutchRecyclerView
                 android:id="@+id/maleRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            </android.support.v7.widget.RecyclerView>
+            </yzq.com.book.widget.NoToutchRecyclerView>
 
             <TextView
+                android:background="@drawable/devider"
                 android:padding="@dimen/layout_padding"
                 android:gravity="center"
                 android:text="女生"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <android.support.v7.widget.RecyclerView
+            <yzq.com.book.widget.NoToutchRecyclerView
                 android:id="@+id/femaleRerecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            </android.support.v7.widget.RecyclerView>
+            </yzq.com.book.widget.NoToutchRecyclerView>
             <TextView
+                android:background="@drawable/devider"
                 android:padding="@dimen/layout_padding"
                 android:gravity="center"
                 android:text="漫画"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <android.support.v7.widget.RecyclerView
+            <yzq.com.book.widget.NoToutchRecyclerView
                 android:id="@+id/pictureRerecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            </android.support.v7.widget.RecyclerView>
+            </yzq.com.book.widget.NoToutchRecyclerView>
 
         </LinearLayout>
 
