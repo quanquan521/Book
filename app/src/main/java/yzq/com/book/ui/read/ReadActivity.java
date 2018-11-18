@@ -1,5 +1,6 @@
 package yzq.com.book.ui.read;
 
+import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
@@ -20,6 +21,7 @@ import yzq.com.book.Constant;
 import yzq.com.book.R;
 import yzq.com.book.bean.BookMixAToc;
 import yzq.com.book.bean.ChapterRead;
+import yzq.com.book.bean.Recommend;
 import yzq.com.book.manager.CacheManager;
 import yzq.com.book.manager.SettingManager;
 import yzq.com.book.manager.ThemeManager;
@@ -39,7 +41,7 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
     @BindView(R.id.fl_page)FrameLayout flReadWidget;
     @BindView(R.id.rlBookReadRoot) RelativeLayout mRlBookReadRoot;
     private BaseReadView mPageWidget;
-    private String bookId="1";
+    private String bookId;
     /**
      * 是否开始阅读章节
      **/
@@ -50,7 +52,10 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
     private int currentChapter = 1;
   //  private TocListAdapter mTocListAdapter;
     /*夜间 白天模式*/
-  private int curTheme = -1;
+    private int curTheme = -1;
+    public static final String INTENT_BEAN = "recommendBooksBean";
+    public static final String INTENT_SD = "isFromSD";
+    private Recommend.RecommendBooks recommendBooks;
 
 
     @Override
@@ -62,17 +67,21 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
     public void initView(Bundle savedInstanceState) {
         initPagerWidget();
     }
+    public static void startActivity(Context context, Recommend.RecommendBooks recommendBooks) {
+        startActivity(context, recommendBooks, false);
+    }
 
-    public static void startActivity(String book_id){
-        Intent intent=new Intent(App.getAppContext(),ReadActivity.class);
-        intent.putExtra("book_id",book_id);
-        App.getAppContext().startActivity(intent);
+    public static void startActivity(Context context, Recommend.RecommendBooks recommendBooks, boolean isFromSD) {
+        context.startActivity(new Intent(context, ReadActivity.class)
+                .putExtra(INTENT_BEAN, recommendBooks)
+                .putExtra(INTENT_SD, isFromSD));
     }
 
     @Override
     public void initParms(Bundle parms) {
         Intent intent=getIntent();
-        bookId=intent.getStringExtra("book_id");
+        recommendBooks= (Recommend.RecommendBooks) intent.getSerializableExtra(INTENT_BEAN);
+        bookId = recommendBooks._id;
     }
 
     @Override
@@ -148,9 +157,9 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
 /*
 加载章节内容*/
     @Override
-    public void showBookToc(BookMixAToc.mixToc bean) {
+    public void showBookToc(BookMixAToc bean) {
         mChapterList.clear();
-        mChapterList.addAll(bean.chapters);
+        mChapterList.addAll(bean.mixToc.chapters);
         readCurrentChapter();
     }
     /**
@@ -161,7 +170,7 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
             showChapterRead(null, currentChapter);
         } else {
          //   mPresenter.getChapterRead(mChapterList.get(currentChapter - 1).link, currentChapter);
-            mPresenter.getChapterRead(bookId, currentChapter);
+            mPresenter.getChapterRead(mChapterList.get(currentChapter - 1).link, currentChapter);
         }
     }
     public synchronized void showChapterRead(ChapterRead.Chapter data, int chapter) { // 加载章节内容

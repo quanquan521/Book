@@ -32,12 +32,12 @@ public interface BookReadContract {
         public abstract void getChapterRead(String book_id, int currentChapter);
     }
     interface BookReadModel extends CoreBaseModel {
-        Observable<BookMixAToc.mixToc> getBookMixAToc(String book_id, String viewChapters);
-        Observable<ChapterRead> getChapterRead(String book_id, int currentChapter);
+        Observable<BookMixAToc> getBookMixAToc(String book_id, String viewChapters);
+        Observable<ChapterRead> getChapterRead(String url, int currentChapter);
     }
 
     interface BookReadView extends CoreBaseView {
-         void  showBookToc(BookMixAToc.mixToc bean);
+         void  showBookToc(BookMixAToc bean);
          void  showChapterRead(ChapterRead.Chapter chapter,int currentChapter);
     }
 }

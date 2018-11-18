@@ -32,10 +32,9 @@ import yzq.com.book.bean.ChapterRead;
  * @date 2016/8/3.
  */
 public interface BookApi {
-    @FormUrlEncoded
-    @POST("chapters")
-    Observable<BookMixAToc.mixToc> getBookMixAToc(@Field("book_id") String book_id);
-    @FormUrlEncoded
-    @POST("chapterRead")
-    Observable<ChapterRead> getChapterRead(@Field("book_id")String book_id,@Field("chapter_id")int chapter_id);
+    @GET("/mix-atoc/{bookId}")
+    Observable<BookMixAToc> getBookMixAToc(@Path("bookId") String bookId, @Query("view") String view);
+
+    @GET("/chapter/{url}")
+    Observable<ChapterRead> getChapterRead(@Path("url") String url);
 }

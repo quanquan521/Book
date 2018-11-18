@@ -34,8 +34,8 @@ public class BookReadModel implements BookReadContract.BookReadModel {
      * @return
      */
     @Override
-    public Observable<BookMixAToc.mixToc> getBookMixAToc(String bookId, String viewChapters) {
-        return RxService.createApi(BookApi.class).getBookMixAToc(bookId).compose(RxUtil.rxSchedulerHelper());
+    public Observable<BookMixAToc> getBookMixAToc(String bookId, String viewChapters) {
+        return RxService.createApi(BookApi.class).getBookMixAToc(bookId,viewChapters).compose(RxUtil.rxSchedulerHelper());
     }
 
     /**
@@ -44,7 +44,7 @@ public class BookReadModel implements BookReadContract.BookReadModel {
      * @return
      */
     @Override
-    public Observable<ChapterRead> getChapterRead(String book_id, int currentChapter) {
-        return RxService.createApi(BookApi.class).getChapterRead(book_id,currentChapter).compose(RxUtil.rxSchedulerHelper());
+    public Observable<ChapterRead> getChapterRead(String url, int currentChapter) {
+        return RxService.createApi(BookApi.class,"http://chapter2.zhuishushenqi.com").getChapterRead(url).compose(RxUtil.rxSchedulerHelper());
     }
 }

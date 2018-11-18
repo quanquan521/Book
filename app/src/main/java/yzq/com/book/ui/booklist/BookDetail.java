@@ -10,11 +10,14 @@ import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import yzq.com.book.App;
 import yzq.com.book.R;
+import yzq.com.book.bean.Recommend;
 import yzq.com.book.ui.booklist.contract.BookListContract;
 import yzq.com.book.ui.booklist.model.BookDetailModel;
 import yzq.com.book.ui.booklist.presenter.BookDetailPresenter;
+import yzq.com.book.ui.read.ReadActivity;
 
 public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailModel>implements BookListContract.BookDetailView{
     @BindView(R.id.ivBookCover)ImageView ivBookCover;
@@ -26,8 +29,10 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
     @BindView(R.id.tvLatelyFollower)TextView tvLatelyFollower;
     @BindView(R.id.tvRetentionRatio)TextView tvRetentionRatio;
     @BindView(R.id.tvSerializeWordCount)TextView tvSerializeWordCount;
+    @BindView(R.id.tvlongIntro)TextView tvlongIntro;
     String bookID;
-
+    private boolean collapseLongIntro = true;
+    private Recommend.RecommendBooks recommendBooks;
 
     @Override
     public int getLayoutId() {
@@ -37,6 +42,17 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
     @Override
     public void initView(Bundle savedInstanceState) {
 
+    }
+
+    @OnClick(R.id.tvlongIntro)
+    public void collapseLongIntro() {
+        if (collapseLongIntro) {
+            tvlongIntro.setMaxLines(20);
+            collapseLongIntro = false;
+        } else {
+            tvlongIntro.setMaxLines(4);
+            collapseLongIntro = true;
+        }
     }
 
     @Override
@@ -62,9 +78,17 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
         tvLatelyFollower.setText(bean.getLatelyFollower()+"");
         tvRetentionRatio.setText(bean.getRetentionRatio()+"%");
         tvSerializeWordCount.setText(bean.getSerializeWordCount()+"字");
-
-
-
-
+        tvlongIntro.setText(bean.getLongIntro());
+        recommendBooks = new Recommend.RecommendBooks();
+        recommendBooks.title = bean.getTitle();
+        recommendBooks._id = bean.get_id();
+        recommendBooks.cover = bean.getCover();
+        recommendBooks.lastChapter = bean.getLastChapter();
+        recommendBooks.updated = bean.getUpdated();
+    }
+    @OnClick(R.id.btnRead)
+    public void onClickRead() {
+        if (recommendBooks == null) return;
+        ReadActivity.startActivity(this, recommendBooks);
     }
 }
