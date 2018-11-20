@@ -29,6 +29,7 @@ import yzq.com.book.ui.main.bean.CategoryList;
 import yzq.com.book.ui.main.contract.MainContract;
 import yzq.com.book.ui.main.model.RankingListModel;
 import yzq.com.book.ui.main.presenter.RankingListPresenter;
+import yzq.com.book.widget.SupportGridItemDecoration;
 
 /**
  *

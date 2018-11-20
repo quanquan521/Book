@@ -23,4 +23,9 @@ public class NoToutchRecyclerView extends RecyclerView {
     public boolean onInterceptTouchEvent(MotionEvent e) {
         return false;
     }
+    @Override
+    public boolean onTouchEvent(MotionEvent e) {
+        //返回true,则后续事件可以继续传递给该View的onTouchEvent()处理
+        return true;
+    }
 }
