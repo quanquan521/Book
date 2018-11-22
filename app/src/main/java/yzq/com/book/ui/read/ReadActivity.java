@@ -169,7 +169,6 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
         if (CacheManager.getInstance().getChapterFile(bookId, currentChapter) != null) {
             showChapterRead(null, currentChapter);
         } else {
-         //   mPresenter.getChapterRead(mChapterList.get(currentChapter - 1).link, currentChapter);
             mPresenter.getChapterRead(mChapterList.get(currentChapter - 1).link, currentChapter);
         }
     }
@@ -199,7 +198,7 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
             for (int i = chapter - 1; i <= chapter + 3 && i <= mChapterList.size(); i++) {
                 if (i > 0 && i != chapter
                         && CacheManager.getInstance().getChapterFile(bookId, i) == null) {
-                  //  mPresenter.getChapterRead(mChapterList.get(i - 1).link, i);
+                    mPresenter.getChapterRead(mChapterList.get(i - 1).link, i);
                 }
             }
         }
