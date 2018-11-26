@@ -14,6 +14,8 @@ import butterknife.OnClick;
 import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.bean.Recommend;
+import yzq.com.book.manager.CacheManager;
+import yzq.com.book.manager.CollectionsManager;
 import yzq.com.book.ui.booklist.contract.BookListContract;
 import yzq.com.book.ui.booklist.model.BookDetailModel;
 import yzq.com.book.ui.booklist.presenter.BookDetailPresenter;
@@ -91,4 +93,12 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
         if (recommendBooks == null) return;
         ReadActivity.startActivity(this, recommendBooks);
     }
+    @OnClick(R.id.btnJoinCollection)
+    public void onClickCollection() {
+       if (CollectionsManager.getInstance().add(recommendBooks))
+           showToast("已添加至我的书架！");
+       else
+           showToast("书架里已存在！");
+    }
+
 }

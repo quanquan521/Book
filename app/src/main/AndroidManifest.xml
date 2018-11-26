@@ -33,7 +33,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.booklist.BookListActivity" />
         <activity android:name=".ui.read.ReadActivity" />
-        <activity android:name=".ui.booklist.BookDetail"></activity>
+        <activity android:name=".ui.booklist.BookDetail" />
+        <activity android:name=".ui.search.SearchActivity"></activity>
     </application>
 
 </manifest>

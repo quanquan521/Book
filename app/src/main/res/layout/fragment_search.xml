@@ -24,49 +24,76 @@
             android:textSize="18sp"
             />
     </android.support.v7.widget.Toolbar>
-    <RelativeLayout
-        android:id="@+id/layoutHotWord"
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/search"
+            android:background="@drawable/rect_search"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_search"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:background="@null"
+                android:textColor="#aab3b8"
+                android:gravity="center"
+                android:hint="书籍搜索"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/layoutHotWord"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="大家都在搜" />
+            >
 
-        <TextView
-            android:id="@+id/tvChangeWords"
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="大家都在搜" />
+
+            <TextView
+                android:id="@+id/tvChangeWords"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@drawable/refresh"
+                android:drawablePadding="5dp"
+                android:text="换一批" />
+        </RelativeLayout>
+        <com.hpw.mvpframe.widget.TagGroup
+            android:layout_marginTop="10dp"
+            android:id="@+id/tag_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.hpw.mvpframe.widget.TagGroup>
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:drawableLeft="@drawable/refresh"
-            android:drawablePadding="5dp"
-            android:text="换一批" />
-    </RelativeLayout>
-    <com.hpw.mvpframe.widget.TagGroup
-        android:id="@+id/tag_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            >
 
-    </com.hpw.mvpframe.widget.TagGroup>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="历史搜索" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="历史搜索" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:drawablePadding="5dp"
-            android:text="清空" />
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawablePadding="5dp"
+                android:text="清空" />
+        </RelativeLayout>
 
 
+    </LinearLayout>
 </LinearLayout>
