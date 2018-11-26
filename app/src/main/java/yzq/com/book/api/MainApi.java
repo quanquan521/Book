@@ -5,7 +5,7 @@ package yzq.com.book.api;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
+import yzq.com.book.bean.HotWord;
 import yzq.com.book.ui.main.bean.CategoryList;
 
 /**
@@ -25,5 +25,7 @@ import yzq.com.book.ui.main.bean.CategoryList;
 public interface MainApi {
     @GET("/cats/lv2/statistics")
     Observable<CategoryList> getCategoryList();
+    @GET("/book/hot-word")
+    Observable<HotWord> getHotWord();
 
 }

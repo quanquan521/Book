@@ -8,6 +8,7 @@ import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
 
 import io.reactivex.Observable;
+import yzq.com.book.bean.HotWord;
 import yzq.com.book.ui.main.bean.CategoryList;
 
 /**
@@ -35,5 +36,15 @@ public interface MainContract {
 
     interface MainView extends CoreBaseView {
         void  showSort(CategoryList bean);
+    }
+    abstract class SearchFragmentPresenter extends CoreBasePresenter<SearchFragmentModel,SearchFragmentView>{
+        public abstract void getHotWordList();
+    }
+    interface SearchFragmentModel extends CoreBaseModel{
+        Observable<HotWord>getHotWordList();
+
+    }
+    interface SearchFragmentView extends CoreBaseView{
+        void showHotWordList(HotWord bean);
     }
 }

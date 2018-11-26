@@ -78,7 +78,7 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
         }
         mRecyclerView.setLayoutManager(layoutManager != null ? layoutManager : new LinearLayoutManager(getContext()));
         this.mQuickAdapter = mQuickAdapter;
-        mRecyclerView.setAdapter(mQuickAdapter);
+       // mRecyclerView.setAdapter(mQuickAdapter);
         mQuickAdapter.openLoadAnimation();
         mRecyclerView.setAdapter(mQuickAdapter);
         return this;
