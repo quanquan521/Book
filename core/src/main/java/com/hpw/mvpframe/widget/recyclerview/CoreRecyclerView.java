@@ -67,6 +67,7 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
 
     public CoreRecyclerView init(RecyclerView.LayoutManager layoutManager, BaseQuickAdapter mQuickAdapter) {
         init(layoutManager, mQuickAdapter, true);
+
         return this;
     }
 

@@ -7,15 +7,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.hpw.mvpframe.base.CoreBaseFragment;
+import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
+import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
+import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +25,10 @@ import butterknife.BindView;
 import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.ui.booklist.BookListActivity;
-import yzq.com.book.ui.main.adapter.CateListAdapter;
 import yzq.com.book.ui.main.bean.CategoryList;
 import yzq.com.book.ui.main.contract.MainContract;
 import yzq.com.book.ui.main.model.RankingListModel;
 import yzq.com.book.ui.main.presenter.RankingListPresenter;
-import yzq.com.book.widget.SupportGridItemDecoration;
 
 /**
  *
@@ -75,6 +74,7 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
                 Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(1)).crossFade().into((ImageView) helper.getView(R.id.iv));
                 Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(0)).crossFade().into((ImageView) helper.getView(R.id.iv1));
                 Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(2)).crossFade().into((ImageView) helper.getView(R.id.iv2));
+
             }
         };
         femaleAdapter= new BaseQuickAdapter<CategoryList.FemaleBean, BaseViewHolder>(R.layout.item_catelist,femaleBeanList) {
@@ -83,7 +83,7 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
                 helper.setText(R.id.tv,item.getName());
                 Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(1)).crossFade().into((ImageView) helper.getView(R.id.iv));
                 Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(0)).crossFade().into((ImageView) helper.getView(R.id.iv1));
-                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(2)).crossFade().into((ImageView) helper.getView(R.id.iv2));
+                Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(1)).crossFade().into((ImageView) helper.getView(R.id.iv2));
             }
         };
         pictureAdapter= new BaseQuickAdapter<CategoryList.PictureBean, BaseViewHolder>(R.layout.item_catelist,pictureBeanList) {
@@ -103,20 +103,20 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
     }
 
     private void setListner() {
-        maleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        maleRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent=new Intent(getContext(),BookListActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("title",maleBeanList.get(position).getName());
-                bundle.putString("gender","male");
-                bundle.putString("type","hot");
-                bundle.putString("major",maleBeanList.get(position).getName());
-                bundle.putString("minor","");
-                bundle.putInt("start",0);
-                bundle.putInt("limit",20);
-                intent.putExtras(bundle);
-                startActivity(intent);
+            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
+                  Intent intent=new Intent(getContext(),BookListActivity.class);
+                            Bundle bundle=new Bundle();
+                           bundle.putString("title",maleBeanList.get(position).getName());
+                          bundle.putString("gender","male");
+                         bundle.putString("type","hot");
+                         bundle.putString("major",maleBeanList.get(position).getName());
+                        bundle.putString("minor","");
+                         bundle.putInt("start",1);
+                        bundle.putInt("limit",2);
+                       intent.putExtras(bundle);
+                       startActivity(intent);
             }
         });
 

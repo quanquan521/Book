@@ -74,6 +74,12 @@ public class SearchFragment extends CoreBaseFragment<SearchFragmentPresenter,Sea
                 return false;
             }
         });
+        tag_group.setOnTagClickListener(new TagGroup.OnTagClickListener() {
+            @Override
+            public void onTagClick(String tag) {
+                SearchActivity.startActivity(getContext(),tag);
+            }
+        });
     }
 
     @Override

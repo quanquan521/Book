@@ -9,9 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.hpw.mvpframe.base.CoreBaseActivity;
+import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
+import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
+import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
+import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
+
 import java.util.ArrayList;
 import butterknife.BindView;
 import yzq.com.book.App;
@@ -23,7 +26,7 @@ import yzq.com.book.ui.booklist.presenter.BookListPresenter;
 
 public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookListModel> implements BookListContract.BookListView{
     @BindView(R.id.title)TextView tv_title;
-    @BindView(R.id.rv)RecyclerView rv;
+    @BindView(R.id.rv)CoreRecyclerView rv;
     String gender;
     String type;
     String major;
@@ -42,8 +45,6 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
     @Override
     public void initView(Bundle savedInstanceState) {
         tv_title.setText(title);
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(new LinearLayoutManager(this));
         adapter=new BaseQuickAdapter<BooksByCats.BooksBean,BaseViewHolder>(R.layout.item_subject_book_list_detail,list) {
             @Override
             protected void convert(BaseViewHolder helper, BooksByCats.BooksBean item) {
@@ -56,21 +57,26 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
 
             }
         };
-        rv.setAdapter(adapter);
+        rv.init(adapter,true);
         setListner();
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Bundle bundle=new Bundle();
-                bundle.putString("bookID",list.get(position).get_id());
-               startActivity(BookDetail.class,bundle);
-            }
-        });
-
     }
 
     private void setListner() {
+        rv.openLoadMore(start, new CoreRecyclerView.addDataListener() {
+            @Override
+            public void addData(int page) {
 
+            }
+        });
+        rv.openRefresh();
+        rv.addOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Bundle bundle=new Bundle();
+                bundle.putString("bookID",list.get(position).get_id());
+                startActivity(BookDetail.class,bundle);
+            }
+        });
     }
 
     @Override
@@ -94,7 +100,6 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
 
     @Override
     public void showBookList(BooksByCats bean) {
-        list.clear();
         list.addAll(bean.getBooks());
         adapter.notifyDataSetChanged();
     }

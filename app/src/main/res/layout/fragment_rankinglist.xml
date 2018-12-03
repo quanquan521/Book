@@ -16,11 +16,11 @@
                 android:text="男生"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <yzq.com.book.widget.NoToutchRecyclerView
+            <android.support.v7.widget.RecyclerView
                 android:id="@+id/maleRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            </yzq.com.book.widget.NoToutchRecyclerView>
+            </android.support.v7.widget.RecyclerView>
 
             <TextView
                 android:background="@drawable/devider"
