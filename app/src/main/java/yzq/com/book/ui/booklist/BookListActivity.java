@@ -36,6 +36,7 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
     String title;
     ArrayList <BooksByCats.BooksBean>list=new ArrayList();
     BaseQuickAdapter adapter;
+    int pagesize=20;
 
     @Override
     public int getLayoutId() {
@@ -62,13 +63,12 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
     }
 
     private void setListner() {
-        rv.openLoadMore(start, new CoreRecyclerView.addDataListener() {
-            @Override
-            public void addData(int page) {
-
-            }
-        });
-        rv.openRefresh();
+       rv.openLoadMore(pagesize, new CoreRecyclerView.addDataListener() {
+           @Override
+           public void addData(int page) {
+               mPresenter.getBookList(gender,type,major,minor,start,limit);
+           }
+       });
         rv.addOnItemClickListener(new OnItemClickListener() {
             @Override
             public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -102,6 +102,9 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
     public void showBookList(BooksByCats bean) {
         list.addAll(bean.getBooks());
         adapter.notifyDataSetChanged();
+        start+=bean.getBooks().size();
+        rv.hideLoadingMore();
+
     }
 
 

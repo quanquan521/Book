@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <yzq.com.book.widget.ReboundScrollView
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:gravity="center"
+        >
+        <TextView
+            android:text="分类"
+            android:id="@+id/title"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:background="@color/sortBackground"
+            android:minWidth="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent">
-            <TextView
-                android:background="@drawable/devider"
-                android:padding="@dimen/layout_padding"
-                android:gravity="center"
-                android:text="男生"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/maleRecyclerView"
+                android:id="@+id/sortRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             </android.support.v7.widget.RecyclerView>
 
-            <TextView
-                android:background="@drawable/devider"
-                android:padding="@dimen/layout_padding"
-                android:gravity="center"
-                android:text="女生"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <yzq.com.book.widget.NoToutchRecyclerView
-                android:id="@+id/femaleRerecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </yzq.com.book.widget.NoToutchRecyclerView>
-            <TextView
-                android:background="@drawable/devider"
-                android:padding="@dimen/layout_padding"
-                android:gravity="center"
-                android:text="漫画"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <yzq.com.book.widget.NoToutchRecyclerView
-                android:id="@+id/pictureRerecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </yzq.com.book.widget.NoToutchRecyclerView>
-
         </LinearLayout>
+        <View
+            android:background="@color/sortBackground"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+        <com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView
+            android:id="@+id/bookRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </yzq.com.book.widget.ReboundScrollView>
+        </com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView>
 
+    </LinearLayout>
 </LinearLayout>

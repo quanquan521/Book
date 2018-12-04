@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
+import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import butterknife.BindView;
 import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.ui.booklist.BookListActivity;
+import yzq.com.book.ui.main.adapter.SortFragmentTypeAdapter;
 import yzq.com.book.ui.main.bean.CategoryList;
 import yzq.com.book.ui.main.contract.MainContract;
 import yzq.com.book.ui.main.model.RankingListModel;
@@ -45,15 +48,18 @@ import yzq.com.book.ui.main.presenter.RankingListPresenter;
  *
  */
 public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,RankingListModel> implements MainContract.MainView{
-    @BindView(R.id.maleRecyclerView)RecyclerView maleRecyclerView;
-    @BindView(R.id.femaleRerecyclerView)RecyclerView femaleRerecyclerView;
-    @BindView(R.id.pictureRerecyclerView)RecyclerView pictureRerecyclerView;
+    @BindView(R.id.bookRecyclerView)CoreRecyclerView bookRecyclerView;
+    @BindView(R.id.sortRecyclerView)RecyclerView sortRecyclerView;
+
     BaseQuickAdapter maleAdapter;
     BaseQuickAdapter femaleAdapter;
     BaseQuickAdapter pictureAdapter;
     List<CategoryList.MaleBean> maleBeanList=new ArrayList<>();
     List<CategoryList.FemaleBean> femaleBeanList=new ArrayList<>();
     List<CategoryList.PictureBean> pictureBeanList=new ArrayList<>();
+    List<String> sortName=new ArrayList<>();
+    SortFragmentTypeAdapter sortNameAdapter;
+    private int sortPosition=-1;
     @Override
     public int getLayoutId() {
         return R.layout.fragment_rankinglist;
@@ -61,12 +67,9 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
-        maleRecyclerView.setHasFixedSize(true);
-        maleRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
-        femaleRerecyclerView.setHasFixedSize(true);
-        femaleRerecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
-        pictureRerecyclerView.setHasFixedSize(true);
-        pictureRerecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        sortNameAdapter=new SortFragmentTypeAdapter(getContext(), (ArrayList<String>) sortName);
+        sortRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        sortRecyclerView.setAdapter(sortNameAdapter);
         maleAdapter=new BaseQuickAdapter<CategoryList.MaleBean, BaseViewHolder>(R.layout.item_catelist,maleBeanList) {
             @Override
             protected void convert(BaseViewHolder helper, CategoryList.MaleBean item) {
@@ -95,31 +98,56 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
                 Glide.with(mContext).load(App.getInstance().setBaseResUrl()+item.getBookCover().get(2)).crossFade().into((ImageView) helper.getView(R.id.iv2));
             }
         };
-
-        maleRecyclerView.setAdapter(maleAdapter);
-        femaleRerecyclerView.setAdapter(femaleAdapter);
-        pictureRerecyclerView.setAdapter(pictureAdapter);
+        sortNameAdapter.changeState(0);
+        sortPosition=0;
+        bookRecyclerView.init(new GridLayoutManager(getContext(),3),maleAdapter);
         setListner();
     }
 
+
     private void setListner() {
-        maleRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
+        sortNameAdapter.setOnItemClickListener(new SortFragmentTypeAdapter.MyItemClickListener() {
             @Override
-            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
-                  Intent intent=new Intent(getContext(),BookListActivity.class);
-                            Bundle bundle=new Bundle();
-                           bundle.putString("title",maleBeanList.get(position).getName());
-                          bundle.putString("gender","male");
-                         bundle.putString("type","hot");
-                         bundle.putString("major",maleBeanList.get(position).getName());
-                        bundle.putString("minor","");
-                         bundle.putInt("start",1);
-                        bundle.putInt("limit",2);
-                       intent.putExtras(bundle);
-                       startActivity(intent);
+            public void onItemClick(View view, int postion) {
+                sortNameAdapter. changeState(postion);
+                if (0==postion){
+                    sortPosition=0;
+                    bookRecyclerView.init(new GridLayoutManager(getContext(),3),maleAdapter);
+                }else if (1==postion){
+                    sortPosition=1;
+                    bookRecyclerView.init(new GridLayoutManager(getContext(),3),femaleAdapter);
+                }else if (2==postion){
+                    sortPosition=2;
+                    bookRecyclerView.init(new GridLayoutManager(getContext(),3),pictureAdapter);
+                }
             }
         });
-
+        bookRecyclerView.addOnItemClickListener(new OnItemClickListener() {
+           @Override
+           public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
+               Intent intent=new Intent(getContext(),BookListActivity.class);
+               Bundle bundle=new Bundle();
+               if (0==sortPosition){
+                   bundle.putString("title",maleBeanList.get(position).getName());
+                   bundle.putString("major",maleBeanList.get(position).getName());
+                   bundle.putString("gender","male");
+               }else if (1==sortPosition){
+                   bundle.putString("title",femaleBeanList.get(position).getName());
+                   bundle.putString("major",femaleBeanList.get(position).getName());
+                   bundle.putString("gender","female");
+               }else if (2==sortPosition){
+                   bundle.putString("title",pictureBeanList.get(position).getName());
+                   bundle.putString("major",pictureBeanList.get(position).getName());
+                   bundle.putString("gender","picture");
+               }
+               bundle.putString("type","hot");
+               bundle.putString("minor","");
+               bundle.putInt("start",0);
+               bundle.putInt("limit",20);
+               intent.putExtras(bundle);
+               startActivity(intent);
+           }
+       });
     }
 
     public    static RankingListFragment newInstance(){
@@ -130,6 +158,7 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
 
     @Override
     public void initData() {
+        sortName.add("男生"); sortName.add("女生"); sortName.add("漫画");
         mPresenter.getSort();
     }
 
@@ -138,5 +167,6 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
         maleBeanList.clear();femaleBeanList.clear();pictureBeanList.clear();
         maleBeanList.addAll(bean.getMale() );femaleBeanList.addAll(bean.getFemale());pictureBeanList.addAll(bean.getPicture());
         maleAdapter.notifyDataSetChanged();femaleAdapter.notifyDataSetChanged();pictureAdapter.notifyDataSetChanged();
+
     }
 }

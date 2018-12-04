@@ -24,6 +24,7 @@ import yzq.com.book.R;
 import yzq.com.book.ui.main.fragment.BookCaseFragment;
 import yzq.com.book.ui.main.fragment.RankingListFragment;
 import yzq.com.book.ui.main.fragment.SearchFragment;
+import yzq.com.book.ui.test.AllApp;
 
 public class MainActivity extends CoreBaseActivity{
     @BindView(R.id.navigation_view)NavigationView navigationView;
@@ -58,7 +59,7 @@ public class MainActivity extends CoreBaseActivity{
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i){
                     case R.id.bookCase:
-                        showHideFragment(fragments.get(0));
+                         showHideFragment(fragments.get(0));
                         break;
                     case R.id.rankingList:
                         showHideFragment(fragments.get(1));

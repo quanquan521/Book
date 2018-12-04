@@ -3,4 +3,5 @@
     <dimen name="activty_margin">12dp</dimen>
     <dimen name="layout_padding">12dp</dimen>
     <dimen name="table_height">45dp</dimen>
+    <dimen name="textSize_14sp">14sp</dimen>
 </resources>

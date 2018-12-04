@@ -7,20 +7,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.SearchView;
+
+import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.widget.recyclerview.BaseItemDraggableAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseSectionQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
+import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.bean.SearchDetail;
+import yzq.com.book.ui.booklist.BookDetail;
 import yzq.com.book.ui.search.contract.SearchContract;
 import yzq.com.book.ui.search.model.SearchModel;
 import yzq.com.book.ui.search.presenter.SearchPresenter;
@@ -41,14 +48,27 @@ public class SearchActivity extends CoreBaseActivity<SearchPresenter,SearchModel
 
     @Override
     public void initView(Bundle savedInstanceState) {
-       adapter=new BaseQuickAdapter<SearchDetail.BooksBean,BaseViewHolder>(R.layout.item_search,list) {
+
+       adapter=new BaseQuickAdapter<SearchDetail.BooksBean,BaseViewHolder>(R.layout.item_search_result_list,list) {
            @Override
            protected void convert(BaseViewHolder helper, SearchDetail.BooksBean item) {
                helper.setText(R.id.tvBookListTitle,item.getTitle());
+               Glide.with(SearchActivity.this).load(App.getInstance().setBaseResUrl()+item.getCover()).into((ImageView) helper.getView(R.id.ivBookCover));
+               helper.setText(R.id.tvLatelyFollower,item.getLatelyFollower()+"人在追 |");
+               helper.setText(R.id.tvRetentionRatio,item.getRetentionRatio()+"%读者留存 | ");
+               helper.setText(R.id.tvBookListAuthor,item.getAuthor());
 
            }
        };
         recyclerView.init(adapter);
+        recyclerView.addOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Bundle bundle=new Bundle();
+                bundle.putString("bookID",list.get(position).get_id());
+                startActivity(BookDetail.class,bundle);
+            }
+        });
     }
 
     @Override

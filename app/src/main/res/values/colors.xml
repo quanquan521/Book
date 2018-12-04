@@ -20,7 +20,7 @@
     <!--状态栏的颜色-->
     <color name="colorPrimaryDark">#3B90DF</color>
     <!--控件的选中颜色，即checked或selected状态的颜色。-->
-    <color name="colorAccent">#3B99DF</color>
+    <color name="colorAccent">#3b99df</color>
 
     <color name="tip">#88303F9F</color>
 
@@ -83,6 +83,7 @@
     <color name="gender_select_male_pressed">#B2DFEE</color>
     <color name="gender_select_female_normal">#EEA9B8</color>
     <color name="gender_select_female_pressed">#EEA2AD</color>
+    <color name="sortBackground">#f2f2f2</color>
 
 
 </resources>

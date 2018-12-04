@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+           android:visibility="invisible"
+            android:orientation="vertical"
+            android:id="@+id/mark"
+            android:background="@color/red"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:id="@+id/name"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:textColor="#666666"
+                android:textSize="@dimen/sp_14"
+                android:text="摄像机"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
