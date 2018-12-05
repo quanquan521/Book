@@ -63,7 +63,7 @@ public class CollectionsManager {
      */
     public List<Recommend.RecommendBooks> getCollectionList() {
         List<Recommend.RecommendBooks> list = (ArrayList<Recommend.RecommendBooks>) ACache.get(new File(Constant.PATH_COLLECT)).getAsObject("collection");
-        return list == null ? null : list;
+        return list == null ? new ArrayList<>() : list;
     }
 
     public void putCollectionList(List<Recommend.RecommendBooks> list) {
