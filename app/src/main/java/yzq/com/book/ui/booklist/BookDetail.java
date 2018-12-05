@@ -1,6 +1,7 @@
 package yzq.com.book.ui.booklist;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import yzq.com.book.ui.booklist.contract.BookListContract;
 import yzq.com.book.ui.booklist.model.BookDetailModel;
 import yzq.com.book.ui.booklist.presenter.BookDetailPresenter;
 import yzq.com.book.ui.read.ReadActivity;
+import yzq.com.book.widget.DrawableCenterButton;
 
 public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailModel>implements BookListContract.BookDetailView{
     @BindView(R.id.ivBookCover)ImageView ivBookCover;
@@ -32,6 +34,7 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
     @BindView(R.id.tvRetentionRatio)TextView tvRetentionRatio;
     @BindView(R.id.tvSerializeWordCount)TextView tvSerializeWordCount;
     @BindView(R.id.tvlongIntro)TextView tvlongIntro;
+    @BindView(R.id.btnJoinCollection)DrawableCenterButton collection;
     String bookID;
     private boolean collapseLongIntro = true;
     private Recommend.RecommendBooks recommendBooks;
@@ -95,10 +98,13 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
     }
     @OnClick(R.id.btnJoinCollection)
     public void onClickCollection() {
-       if (CollectionsManager.getInstance().add(recommendBooks))
-           showToast("已添加至我的书架！");
-       else
+       if (CollectionsManager.getInstance().add(recommendBooks)){
+           collection.setBackgroundColor(Color.GRAY);
+           collection.setText("已添加");
+       } else
            showToast("书架里已存在！");
+        collection.setBackgroundColor(Color.GRAY);
+        collection.setText("已添加");
     }
 
 }

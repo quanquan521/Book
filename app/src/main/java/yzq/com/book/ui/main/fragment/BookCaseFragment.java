@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
+import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
 import java.util.List;
 
@@ -25,6 +27,7 @@ import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.bean.Recommend;
 import yzq.com.book.manager.CollectionsManager;
+import yzq.com.book.ui.read.ReadActivity;
 
 /**
  *
@@ -42,11 +45,18 @@ import yzq.com.book.manager.CollectionsManager;
  */
 public class BookCaseFragment extends CoreBaseFragment {
     @BindView(R.id.recyclerView)CoreRecyclerView recyclerView;
-
+    List<Recommend.RecommendBooks>list;
+    BaseQuickAdapter adapter;
 
     @Override
     public int getLayoutId() {
         return R.layout.fragment_bookcase;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        recyclerView.onRefresh();
     }
 
     @Override
@@ -57,8 +67,8 @@ public class BookCaseFragment extends CoreBaseFragment {
 
     @Override
     public void initData() {
-       List<Recommend.RecommendBooks>list= CollectionsManager.getInstance().getCollectionList();
-       recyclerView.init(new GridLayoutManager(getContext(),3),new BaseQuickAdapter<Recommend.RecommendBooks,BaseViewHolder>(R.layout.item_bookcase,list) {
+       list= CollectionsManager.getInstance().getCollectionList();
+       adapter=new BaseQuickAdapter<Recommend.RecommendBooks,BaseViewHolder>(R.layout.item_bookcase,list) {
            @Override
            protected void convert(BaseViewHolder helper, Recommend.RecommendBooks item) {
                View view=helper.getConvertView();
@@ -67,8 +77,37 @@ public class BookCaseFragment extends CoreBaseFragment {
                tv.setText(item.title);
                Glide.with(getContext()).load(App.getInstance().setBaseResUrl()+item.cover).into(iv);
            }
+       };
+       recyclerView.init(new GridLayoutManager(getContext(),3),adapter,true);
+       recyclerView.openLoadMore(1000, new CoreRecyclerView.addDataListener() {
+           @Override
+           public void addData(int page) {
+              list.addAll(CollectionsManager.getInstance().getCollectionList());
+              adapter.notifyDataSetChanged();
+           }
        });
+       recyclerView.openLoadAnimation();
+       recyclerView.openRefresh();
+       setListner();
+    }
 
+
+    private void setListner() {
+
+        recyclerView.addOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ReadActivity.startActivity(getContext(), list.get(position));
+            }
+
+            @Override
+            public void SimpleOnItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                CollectionsManager.getInstance().remove(list.get(position)._id);
+                recyclerView.remove(position);
+
+            }
+
+        });
     }
 
     public    static BookCaseFragment newInstance(){

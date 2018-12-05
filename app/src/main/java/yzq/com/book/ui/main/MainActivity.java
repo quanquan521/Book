@@ -22,6 +22,7 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.tencent.qq.QQ;
 import yzq.com.book.R;
 import yzq.com.book.ui.main.fragment.BookCaseFragment;
+import yzq.com.book.ui.main.fragment.CommunityFragment;
 import yzq.com.book.ui.main.fragment.RankingListFragment;
 import yzq.com.book.ui.main.fragment.SearchFragment;
 import yzq.com.book.ui.test.AllApp;
@@ -51,9 +52,9 @@ public class MainActivity extends CoreBaseActivity{
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        fragments.add( BookCaseFragment.newInstance());fragments.add(RankingListFragment.newInstance());fragments.add(SearchFragment.newInstance());
+        fragments.add( BookCaseFragment.newInstance());fragments.add(RankingListFragment.newInstance());fragments.add(SearchFragment.newInstance());fragments.add(CommunityFragment.newInstance());
 
-        loadMultipleRootFragment(R.id.fragmentContainner,0,fragments.get(0),fragments.get(1),fragments.get(2) );
+        loadMultipleRootFragment(R.id.fragmentContainner,0,fragments.get(0),fragments.get(1),fragments.get(2),fragments.get(3) );
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -66,7 +67,11 @@ public class MainActivity extends CoreBaseActivity{
                         break;
                     case R.id.search:
                         showHideFragment(fragments.get(2));
-
+                        break;
+                    case R.id.community:
+                        showHideFragment(fragments.get(3));
+                      //  startActivity(AllApp.class);
+                        break;
                 }
             }
         });

@@ -147,7 +147,12 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
                intent.putExtras(bundle);
                startActivity(intent);
            }
-       });
+
+            @Override
+            public void SimpleOnItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+
+            }
+        });
     }
 
     public    static RankingListFragment newInstance(){

@@ -22,17 +22,20 @@ public class ErrorInfoUtils {
             HttpException exception = (HttpException) throwable;
             ResponseBody responseBody = exception.response().errorBody();
             MediaType type = responseBody.contentType();
+            if (type==null){
+                errorInfo="请检查网络再试！";
+            }else {
+                // 如果是application/json类型数据,则解析返回内容
+                if (type.type().equals("application") && type.subtype().equals("json")) {
+                    try {
+                        // 这里的返回内容是Bmob/AVOS/Parse等RestFul API文档中的错误代码和错误信息对象
+                        CoreDataResponse errorResponse = new Gson().fromJson(
+                                responseBody.string(), CoreDataResponse.class);
 
-            // 如果是application/json类型数据,则解析返回内容
-            if (type.type().equals("application") && type.subtype().equals("json")) {
-                try {
-                    // 这里的返回内容是Bmob/AVOS/Parse等RestFul API文档中的错误代码和错误信息对象
-                    CoreDataResponse errorResponse = new Gson().fromJson(
-                            responseBody.string(), CoreDataResponse.class);
-
-                    errorInfo = getLocalErrorInfo(errorResponse);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                        errorInfo = getLocalErrorInfo(errorResponse);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         } else {

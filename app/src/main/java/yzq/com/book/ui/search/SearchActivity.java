@@ -2,20 +2,13 @@ package yzq.com.book.ui.search;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.SearchView;
-
 import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseActivity;
-import com.hpw.mvpframe.widget.recyclerview.BaseItemDraggableAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
-import com.hpw.mvpframe.widget.recyclerview.BaseSectionQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
@@ -48,7 +41,6 @@ public class SearchActivity extends CoreBaseActivity<SearchPresenter,SearchModel
 
     @Override
     public void initView(Bundle savedInstanceState) {
-
        adapter=new BaseQuickAdapter<SearchDetail.BooksBean,BaseViewHolder>(R.layout.item_search_result_list,list) {
            @Override
            protected void convert(BaseViewHolder helper, SearchDetail.BooksBean item) {
@@ -68,7 +60,27 @@ public class SearchActivity extends CoreBaseActivity<SearchPresenter,SearchModel
                 bundle.putString("bookID",list.get(position).get_id());
                 startActivity(BookDetail.class,bundle);
             }
+
+            @Override
+            public void SimpleOnItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+
+            }
         });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                keyword=query;
+                mPresenter.getSearchResultList(keyword);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+
     }
 
     @Override
@@ -92,6 +104,7 @@ public class SearchActivity extends CoreBaseActivity<SearchPresenter,SearchModel
 
     @Override
     public void showSearchResultList(SearchDetail bean) {
+        list.clear();
         list.addAll(bean.getBooks());
         adapter.notifyDataSetChanged();
     }

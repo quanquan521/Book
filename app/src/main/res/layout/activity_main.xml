@@ -65,7 +65,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"  />
                 <RadioButton
-                    android:text="发现"
+                    android:id="@+id/community"
+                    android:text="社区"
                     android:gravity="center"
                     android:button="@null"
                     android:layout_weight="1"

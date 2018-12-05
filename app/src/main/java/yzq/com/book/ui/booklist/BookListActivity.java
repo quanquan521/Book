@@ -76,6 +76,11 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
                 bundle.putString("bookID",list.get(position).get_id());
                 startActivity(BookDetail.class,bundle);
             }
+
+            @Override
+            public void SimpleOnItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+
+            }
         });
     }
 
