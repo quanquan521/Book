@@ -287,6 +287,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:text="读者评论"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
@@ -304,18 +305,20 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <yzq.com.book.widget.NoToutchRecyclerView
                 android:id="@+id/rvHotReview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:foregroundGravity="center" />
 
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:background="@color/common_divider_wide" />
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/rlCommunity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -346,11 +349,13 @@
             </RelativeLayout>
 
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:background="@color/common_divider_wide" />
 
             <TextView
+
                 android:id="@+id/tvRecommendBookList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -360,6 +365,7 @@
                 android:visibility="gone" />
 
             <android.support.v7.widget.RecyclerView
+                android:visibility="gone"
                 android:id="@+id/rvRecommendBoookList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

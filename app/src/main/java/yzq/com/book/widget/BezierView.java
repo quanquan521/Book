@@ -73,8 +73,7 @@ public class BezierView extends View  {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-        mPath.reset();//重置笔画
+        mPath.reset();//重置
         mPath.moveTo(-mRippleWeight + mOffset, mCenterY);
         for (int i = 0;i <  mRippleCount;i++) {
             mPath.quadTo(-mRippleWeight * 3 / 4 + i * mRippleWeight + mOffset,mCenterY + 50,-mRippleWeight / 2 + i * mRippleWeight + mOffset,mCenterY);

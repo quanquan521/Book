@@ -8,6 +8,7 @@ import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
 
 import io.reactivex.Observable;
+import yzq.com.book.bean.HotReview;
 import yzq.com.book.ui.booklist.bean.BookDetail;
 import yzq.com.book.ui.booklist.bean.BooksByCats;
 
@@ -39,12 +40,14 @@ public interface BookListContract {
 
     abstract class BookDetailPresenter extends CoreBasePresenter<BookDetailModel,BookDetailView>{
         public abstract void getBookDetail(String bookId);
+        public abstract void  getHotReview(String bookId);
     }
     interface BookDetailModel extends CoreBaseModel{
         Observable<BookDetail>getBookDetail(String bookId);
-
+        Observable<HotReview>getHotReview(String bookId);
     }
     interface BookDetailView extends CoreBaseView{
         void showBookDetail(BookDetail bean);
+        void showHotReview(HotReview bean);
     }
 }

@@ -7,6 +7,7 @@ import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import yzq.com.book.bean.HotReview;
 import yzq.com.book.ui.booklist.bean.BookDetail;
 import yzq.com.book.ui.booklist.bean.BooksByCats;
 
@@ -25,13 +26,16 @@ import yzq.com.book.ui.booklist.bean.BooksByCats;
  *
  */
 public interface BookListApi {
+
+    /*http://api.zhuishushenqi.com*/
+
     /**
      * 按分类获取书籍列表
      *
      * @param gender male、female
      * @param type   hot(热门)、new(新书)、reputation(好评)、over(完结)
      * @param major  玄幻
-     * @param //minor  东方玄幻、异界大陆、异界争霸、远古神话
+     * @param start
      * @param limit  50
      * @return
      */
@@ -40,4 +44,13 @@ public interface BookListApi {
 
     @GET("/book/{bookId}")
     Observable<BookDetail> getBookDetail(@Path("bookId") String bookId);
+
+    /**
+     * 热门评论
+     *
+     * @param bookid
+     * @return
+     */
+    @GET("/post/by-book")
+    Observable<HotReview> getHotReview(@Query("book") String bookid);
 }
