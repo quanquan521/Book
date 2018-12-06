@@ -27,7 +27,24 @@
     <style name="TextAppearance.ExpandedTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">26sp</item>
     </style>
+  <!--登录动画-->
+    <style name="LoginPopup">
+        <item name="android:windowEnterAnimation">@anim/login_show</item>
+        <item name="android:windowExitAnimation">@anim/login_dismiss</item>
+    </style>
 
-
+    <style name="AdvertisementDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/LoginPopup</item>
+    </style>
 
 </resources>

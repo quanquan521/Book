@@ -163,7 +163,7 @@ public class RankingListFragment extends CoreBaseFragment <RankingListPresenter,
 
     @Override
     public void initData() {
-        sortName.add("男生"); sortName.add("女生"); sortName.add("漫画");
+        sortName.add("男生"); sortName.add("女生"); //sortName.add("漫画");
         mPresenter.getSort();
     }
 

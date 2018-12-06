@@ -4,12 +4,10 @@ package yzq.com.book.ui.main.fragment;
  */
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,11 +21,13 @@ import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.bean.Recommend;
 import yzq.com.book.manager.CollectionsManager;
 import yzq.com.book.ui.read.ReadActivity;
+import yzq.com.book.widget.LoginDialog;
 
 /**
  *
@@ -47,6 +47,7 @@ public class BookCaseFragment extends CoreBaseFragment {
     @BindView(R.id.recyclerView)CoreRecyclerView recyclerView;
     List<Recommend.RecommendBooks>list;
     BaseQuickAdapter adapter;
+    @BindView(R.id.photo)ImageView photo;
 
     @Override
     public int getLayoutId() {
@@ -113,5 +114,10 @@ public class BookCaseFragment extends CoreBaseFragment {
     public    static BookCaseFragment newInstance(){
         BookCaseFragment fragment=new BookCaseFragment();
         return  fragment;
+    }
+    @OnClick(R.id.photo)
+    void photoClicked(){
+        LoginDialog dialog=new LoginDialog(getContext());
+        dialog.show();
     }
 }
