@@ -32,6 +32,7 @@ import yzq.com.book.ui.booklist.model.BookDetailModel;
 import yzq.com.book.ui.booklist.presenter.BookDetailPresenter;
 import yzq.com.book.ui.read.ReadActivity;
 import yzq.com.book.widget.DrawableCenterButton;
+import yzq.com.book.widget.MyScrollView;
 
 public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailModel>implements BookListContract.BookDetailView{
     @BindView(R.id.ivBookCover)ImageView ivBookCover;

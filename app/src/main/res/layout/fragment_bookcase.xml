@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <LinearLayout
-
+            android:orientation="vertical"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -29,6 +29,11 @@
                 android:src="@drawable/timg"
                 android:layout_width="60dp"
                 android:layout_height="60dp" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

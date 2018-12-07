@@ -13,15 +13,27 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseFragment;
+import com.hpw.mvpframe.widget.GlideCircleTransform;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.tencent.qq.QQ;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.bean.Recommend;
@@ -48,6 +60,7 @@ public class BookCaseFragment extends CoreBaseFragment {
     List<Recommend.RecommendBooks>list;
     BaseQuickAdapter adapter;
     @BindView(R.id.photo)ImageView photo;
+    @BindView(R.id.nickname)TextView nickname;
 
     @Override
     public int getLayoutId() {
@@ -119,5 +132,47 @@ public class BookCaseFragment extends CoreBaseFragment {
     void photoClicked(){
         LoginDialog dialog=new LoginDialog(getContext());
         dialog.show();
+        dialog.setLoginTypeListener(new LoginDialog.LoginTypeListener() {
+            @Override
+            public void onLogin(ImageView view, String type) {
+                switch (type){
+                    case "QQ":
+                        Platform plat = ShareSDK.getPlatform(QQ.NAME);
+                        plat.removeAccount(true); //移除授权状态和本地缓存，下次授权会重新授权
+                        plat.SSOSetting(false); //SSO授权，传false默认是客户端授权，没有客户端授权或者不支持客户端授权会跳web授权
+                        plat.setPlatformActionListener(new PlatformActionListener() {
+                            @Override
+                            public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+                              Observable.create(new ObservableOnSubscribe<HashMap>() {
+                                  @Override
+                                  public void subscribe(ObservableEmitter<HashMap> e) throws Exception {
+                                      e.onNext(hashMap);
+                                  }
+                              }) .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<HashMap>() {
+
+                                  @Override
+                                  public void accept(HashMap o) throws Exception {
+                                      Glide.with(getContext()).load(o.get("figureurl_qq_2")).placeholder(R.drawable.timg).transform(new GlideCircleTransform(getContext())).into(photo);
+                                      nickname.setText((CharSequence) hashMap.get("nickname"));
+                                  }
+                              });
+                            }
+
+                            @Override
+                            public void onError(Platform platform, int i, Throwable throwable) {
+                                showToast("授权失败！");
+                            }
+
+                            @Override
+                            public void onCancel(Platform platform, int i) {
+                                showToast("授权已取消！");
+                            }
+                        });
+                        plat.showUser(null);
+                        break;
+                    case "":break;
+                }
+            }
+        });
     }
 }

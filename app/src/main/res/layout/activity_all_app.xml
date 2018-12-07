@@ -4,6 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/white"
     >
+    <yzq.com.book.widget.DragHelperLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:background="@color/red"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <TextView
+            android:background="@color/md_yellow_500"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </yzq.com.book.widget.DragHelperLayout>
 
 </LinearLayout>
