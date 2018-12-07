@@ -73,6 +73,7 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
         rvHotReview.setLayoutManager(new LinearLayoutManager(this));
         rvHotReview.setAdapter(adapterHot);
 
+
     }
 
     @OnClick(R.id.tvlongIntro)
