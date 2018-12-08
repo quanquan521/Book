@@ -137,7 +137,7 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
        } else
            showToast("书架里已存在！");
         collection.setBackgroundColor(Color.GRAY);
-        collection.setText("已添加");
+        collection.setText(" 已添加");
     }
 
 }
