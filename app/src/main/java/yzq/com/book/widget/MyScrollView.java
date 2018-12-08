@@ -73,12 +73,12 @@ public class MyScrollView extends ScrollView {
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         if(onScrollListener != null){
-            if (getChildAt(0).getHeight() - getHeight()
+          /*  if (getChildAt(0).getHeight() - getHeight()
                     == getScrollY()){
                 isBottom=true;
             }else {
                 isBottom=false;
-            }
+            }*/
             onScrollListener.onScroll(lastScrollY = this.getScrollY(),isTop,isBottom);
         }
         return super.onTouchEvent(ev);
@@ -106,5 +106,15 @@ public class MyScrollView extends ScrollView {
          *    、
          */
         public void onScroll(int scrollY,boolean isTop,boolean isBottom);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int h=0;
+        for (int i=0;i<getChildCount();i++){
+            h+=getChildAt(i).getHeight();
+        }
+        setMeasuredDimension(widthMeasureSpec,h);
     }
 }

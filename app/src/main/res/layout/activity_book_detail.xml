@@ -311,7 +311,7 @@
                 <yzq.com.book.widget.NoToutchRecyclerView
                     android:id="@+id/rvHotReview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:foregroundGravity="center" />
 
                 <View

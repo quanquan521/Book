@@ -52,7 +52,6 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
     @BindView(R.id.rvHotReview)RecyclerView rvHotReview;
     List<HotReview.PostsBean>listHot=new ArrayList<>();
     BaseQuickAdapter adapterHot;
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_book_detail;
@@ -72,8 +71,6 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
         };
         rvHotReview.setLayoutManager(new LinearLayoutManager(this));
         rvHotReview.setAdapter(adapterHot);
-
-
     }
 
     @OnClick(R.id.tvlongIntro)
