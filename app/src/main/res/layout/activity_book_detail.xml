@@ -21,10 +21,6 @@
     android:background="@color/common_bg"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-    <yzq.com.book.widget.DragHelperLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <yzq.com.book.widget.MyScrollView
             android:id="@+id/scrollview"
             android:layout_width="match_parent"
@@ -376,15 +372,4 @@
 
             </LinearLayout>
         </yzq.com.book.widget.MyScrollView>
-        <ScrollView
-            android:background="@color/md_yellow_500"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </ScrollView>
-
-    </yzq.com.book.widget.DragHelperLayout>
-
-
-
 </LinearLayout>

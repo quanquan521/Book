@@ -7,6 +7,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ScrollView;
 
+import com.hpw.mvpframe.CoreApp;
+
+import yzq.com.book.App;
+import yzq.com.book.Constant;
+
 /**
  * Created by A on 2017/9/21.
  */
@@ -108,13 +113,4 @@ public class MyScrollView extends ScrollView {
         public void onScroll(int scrollY,boolean isTop,boolean isBottom);
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int h=0;
-        for (int i=0;i<getChildCount();i++){
-            h+=getChildAt(i).getHeight();
-        }
-        setMeasuredDimension(widthMeasureSpec,h);
-    }
 }

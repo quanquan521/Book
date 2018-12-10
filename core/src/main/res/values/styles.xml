@@ -49,5 +49,15 @@
         <item name="atg_horizontalPadding">12dp</item>
         <item name="atg_verticalPadding">6dp</item>
     </style>
+    <!-- RVPIndicator -->
+    <declare-styleable name="RVPIndicator">
+        <attr name="item_count" />
+        <attr name="text_color_normal" />
+        <attr name="text_color_hightlight" />
+        <attr name="text_size" />
+        <attr name="indicator_color" />
+        <attr name="indicator_src" />
+        <attr name="indicator_style" />
+    </declare-styleable>
 
 </resources>
