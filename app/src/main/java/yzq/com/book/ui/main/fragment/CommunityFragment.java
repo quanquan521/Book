@@ -5,6 +5,8 @@ package yzq.com.book.ui.main.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,14 +15,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.hpw.mvpframe.base.CoreBaseFragment;
+import com.hpw.mvpframe.widget.RVPIndicator;
 import com.hpw.mvpframe.widget.TagColor;
 import com.hpw.mvpframe.widget.TagGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import yzq.com.book.R;
 import yzq.com.book.bean.HotWord;
+import yzq.com.book.ui.main.adapter.MyFragmentPagerAdapter;
 import yzq.com.book.ui.main.contract.MainContract;
 import yzq.com.book.ui.main.model.SearchFragmentModel;
 import yzq.com.book.ui.main.presenter.SearchFragmentPresenter;
@@ -41,6 +46,10 @@ import yzq.com.book.ui.search.SearchActivity;
  *
  */
 public class CommunityFragment extends CoreBaseFragment {
+    @BindView(R.id.indicator)RVPIndicator indicator;
+    @BindView(R.id.viewPager)ViewPager viewPager;
+    List<String>mDatas=new ArrayList<>();
+    private List<CoreBaseFragment> fragments=new ArrayList();
     @Override
     public int getLayoutId() {
         return R.layout.fragment_community;
@@ -48,6 +57,11 @@ public class CommunityFragment extends CoreBaseFragment {
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
+        fragments.add( BookCaseFragment.newInstance());fragments.add(RankingListFragment.newInstance());fragments.add(SearchFragment.newInstance());
+        viewPager.setAdapter(new MyFragmentPagerAdapter(getFragmentManager(),fragments));
+         mDatas.add("1564565"); mDatas.add("2wwwww"); mDatas.add("2wwwww");
+        indicator.setTitleList(mDatas);
+        indicator.setViewPager(viewPager,0);
 
 
     }

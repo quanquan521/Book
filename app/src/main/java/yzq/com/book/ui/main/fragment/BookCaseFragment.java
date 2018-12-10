@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -102,6 +104,9 @@ public class BookCaseFragment extends CoreBaseFragment {
        });
        recyclerView.openLoadAnimation();
        recyclerView.openRefresh();
+       View view= LayoutInflater.from(getContext()).inflate(R.layout.bookcase_emptyview,null,false);
+       view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+       recyclerView.setEmptyView(view);
        setListner();
     }
 

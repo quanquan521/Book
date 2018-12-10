@@ -1,20 +1,5 @@
-/**
- * Copyright 2016 JustWayward Team
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package com.hpw.mvpframe.widget;
 
+package com.hpw.mvpframe.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -30,6 +15,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -39,11 +25,18 @@ import android.widget.TextView;
 
 import com.hpw.mvpframe.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- * Created by Administrator on 2016/8/4.
+ * RVPIndicator
+ * <p>
+ * ViewPager指示器 实现联动，自身滚动
+ * 支持类型 : 下滑线，三角形，全背景，图片
+ * <p>
+ * https://github.com/RuffianZhong/RVPIndicator
+ *
+ * @author ZhongDaFeng
  */
 public class RVPIndicator extends LinearLayout {
 
@@ -51,28 +44,26 @@ public class RVPIndicator extends LinearLayout {
     private static final int STYLE_BITMAP = 0;
     // 指示器风格-下划线
     private static final int STYLE_LINE = 1;
-    // 指示器风格-方形背景
-    private static final int STYLE_SQUARE = 2;
     // 指示器风格-三角形
-    private static final int STYLE_TRIANGLE = 3;
+    private static final int STYLE_TRIANGLE = 2;
 
-    /*
+    /**
      * 系统默认:Tab数量
      */
     private static final int D_TAB_COUNT = 3;
 
-    /*
+    /**
      * 系统默认:文字正常时颜色
      */
     private static final int D_TEXT_COLOR_NORMAL = Color.parseColor("#000000");
 
-    /*
+    /**
      * 系统默认:文字选中时颜色
      */
     private static final int D_TEXT_COLOR_HIGHLIGHT = Color
             .parseColor("#FF0000");
 
-    /*
+    /**
      * 系统默认:指示器颜色
      */
     private static final int D_INDICATOR_COLOR = Color.parseColor("#f29b76");
@@ -80,7 +71,7 @@ public class RVPIndicator extends LinearLayout {
     /**
      * tab上的内容
      */
-    private List<String> mTabTitles;
+    private List<String> mTabTitles = new ArrayList<String>();
 
     /**
      * 可见tab数量
@@ -95,7 +86,7 @@ public class RVPIndicator extends LinearLayout {
     /**
      * 文字大小
      */
-    private int mTextSize = 16;
+    private int mTextSize;
 
     /**
      * 文字正常时的颜色
@@ -130,17 +121,12 @@ public class RVPIndicator extends LinearLayout {
     /**
      * 指示器高
      */
-    private int mIndicatorHeight = 5;
+    private int mIndicatorHeight = -1;
 
     /**
      * 指示器宽
      */
-    private int mIndicatorWidth = getWidth() / mTabVisibleCount;
-
-    /**
-     * 三角形的宽度为单个Tab的1/6
-     */
-    private static final float RADIO_TRIANGEL = 1.0f / 6;
+    private int mIndicatorWidth = -1;
 
     /**
      * 手指滑动时的偏移量
@@ -162,12 +148,18 @@ public class RVPIndicator extends LinearLayout {
      */
     private int mPosition = 0;
 
+    /**
+     * 线性指示器左右padding，默认根据数量均分屏幕
+     */
+    private int mStyleLinePadding = 0;
+
     public RVPIndicator(Context context) {
         this(context, null);
     }
 
     public RVPIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setGravity(Gravity.CENTER_VERTICAL);
         // 获得自定义属性
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.RVPIndicator);
@@ -195,14 +187,11 @@ public class RVPIndicator extends LinearLayout {
                 mBitmap = ((BitmapDrawable) drawable).getBitmap();
             } else if (drawable instanceof NinePatchDrawable) {
                 // .9图处理
-                Bitmap bitmap = Bitmap.createBitmap(
-                        drawable.getIntrinsicWidth(),
-                        drawable.getIntrinsicHeight(), Config.ARGB_8888);
+                Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Config.ARGB_8888);
                 Canvas canvas = new Canvas(bitmap);
                 drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
                 drawable.draw(canvas);
                 mBitmap = bitmap;
-
             }
         } else {
             mBitmap = BitmapFactory.decodeResource(getResources(),
@@ -227,50 +216,39 @@ public class RVPIndicator extends LinearLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-
         switch (mIndicatorStyle) {
-
             case STYLE_LINE:
-
-			/*
-			 * 下划线指示器:宽与item相等,高是item的1/10
-			 */
-                mIndicatorWidth = w / mTabVisibleCount;
-                mIndicatorHeight = h / 10;
+                /**
+                 * 下划线指示器:宽与item相等,高:0 没有指示器；未设置：item的1/10 ；具体值
+                 */
+                mIndicatorWidth = mIndicatorWidth < 0 ? (w / mTabVisibleCount) - (mStyleLinePadding * 2) : mIndicatorWidth;
+                mIndicatorHeight = mIndicatorHeight < 0 ? h / 10 : mIndicatorHeight;
                 mTranslationX = 0;
-                mRectF = new Rect(0, 0, mIndicatorWidth, mIndicatorHeight);
-
+                mRectF = new Rect(mStyleLinePadding, 0, mIndicatorWidth + mStyleLinePadding, mIndicatorHeight);
                 break;
-            case STYLE_SQUARE:
             case STYLE_BITMAP:
-
-			/*
-			 * 方形/图标指示器:宽,高与item相等
-			 */
-                mIndicatorWidth = w / mTabVisibleCount;
-                mIndicatorHeight = h;
+                /**
+                 * 方形/图标指示器:宽,高与item相等
+                 */
+                mIndicatorWidth = mIndicatorWidth < 0 ? w / mTabVisibleCount : mIndicatorWidth;
+                mIndicatorHeight = mIndicatorHeight < 0 ? h : mIndicatorHeight;
                 mTranslationX = 0;
                 mRectF = new Rect(0, 0, mIndicatorWidth, mIndicatorHeight);
-
                 break;
             case STYLE_TRIANGLE:
-
-			/*
-			 * 三角形指示器:宽与item(1/4)相等,高是item的1/4
-			 */
-                //mIndicatorWidth = w / mTabVisibleCount / 4;
-                // mIndicatorHeight = h / 4;
-                mIndicatorWidth = (int) (w / mTabVisibleCount * RADIO_TRIANGEL);// 1/6 of  width  ;
-                mIndicatorHeight = (int) (mIndicatorWidth / 2 / Math.sqrt(2));
+                /**
+                 * 三角形指示器:宽与item(1/5)相等,高item的1/5
+                 */
+                mIndicatorWidth = mIndicatorWidth < 0 ? w / mTabVisibleCount / 5 : mIndicatorWidth;
+                mIndicatorHeight = mIndicatorHeight < 0 ? h / 5 : mIndicatorHeight;
                 mTranslationX = 0;
-
                 break;
         }
         // 初始化tabItem
-        initTabItem();
+        setTabItem();
 
         // 高亮
-        setHighLightTextView(mPosition);
+        setSelectedTextView(mPosition);
     }
 
     /**
@@ -280,29 +258,16 @@ public class RVPIndicator extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         // 保存画布
         canvas.save();
-
         switch (mIndicatorStyle) {
-
             case STYLE_BITMAP:
-
                 canvas.translate(mTranslationX, 0);
                 canvas.drawBitmap(mBitmap, null, mRectF, mPaint);
-
                 break;
             case STYLE_LINE:
-
                 canvas.translate(mTranslationX, getHeight() - mIndicatorHeight);
                 canvas.drawRect(mRectF, mPaint);
-
-                break;
-            case STYLE_SQUARE:
-
-                canvas.translate(mTranslationX, 0);
-                canvas.drawRect(mRectF, mPaint);
-
                 break;
             case STYLE_TRIANGLE:
-
                 canvas.translate(mTranslationX, 0);
                 // 笔锋圆滑度
                 // mPaint.setPathEffect(new CornerPathEffect(10));
@@ -313,22 +278,41 @@ public class RVPIndicator extends LinearLayout {
                 mPath.lineTo(midOfTab + mIndicatorWidth / 2, getHeight());
                 mPath.close();
                 canvas.drawPath(mPath, mPaint);
-
                 break;
         }
-
         // 恢复画布
         canvas.restore();
         super.dispatchDraw(canvas);
     }
 
     /**
-     * 设置tab上的内容
+     * 设置titles
      *
-     * @param datas
+     * @param titleList
      */
-    public void setTabItemTitles(List<String> datas) {
-        this.mTabTitles = datas;
+    public void setTitleList(List<String> titleList) {
+        mTabTitles.clear();
+        mTabTitles.addAll(titleList);
+        setTabItem();
+    }
+
+    /**
+     * 设置title
+     *
+     * @param title
+     * @param pos
+     */
+    public void setTitle(String title, int pos) {
+        int size = mTabTitles.size();
+        if (pos >= size) {
+            return;
+        }
+        for (int i = 0; i < size; i++) {
+            if (pos == i) {
+                mTabTitles.set(i, title);
+            }
+        }
+        setTabItem();
     }
 
     /**
@@ -340,27 +324,29 @@ public class RVPIndicator extends LinearLayout {
     @SuppressWarnings("deprecation")
     public void setViewPager(ViewPager viewPager, int pos) {
         this.mViewPager = viewPager;
-
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
+        mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 // 设置文本高亮
-                setHighLightTextView(position);
+                setSelectedTextView(position);
 
                 // 回调
                 if (onPageChangeListener != null) {
                     onPageChangeListener.onPageSelected(position);
                 }
+
+                //回调
+                if (mOnIndicatorSelected != null) {
+                    mOnIndicatorSelected.setOnIndicatorSelected(position,
+                            mTabTitles == null ? "" : mTabTitles.get(position));
+                }
+
             }
 
             @Override
-            public void onPageScrolled(int position, float positionOffset,
-                                       int positionOffsetPixels) {
-
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 // scoll
                 onScoll(position, positionOffset);
-
                 // 回调
                 if (onPageChangeListener != null) {
                     onPageChangeListener.onPageScrolled(position,
@@ -381,23 +367,41 @@ public class RVPIndicator extends LinearLayout {
         mViewPager.setCurrentItem(pos);
         mPosition = pos;
 
+        //回调
+        if (mOnIndicatorSelected != null) {
+            mOnIndicatorSelected.setOnIndicatorSelected(pos,
+                    mTabTitles == null ? "" : mTabTitles.get(pos));
+        }
+
     }
 
     /**
+     * 线性指示器左右padding
      *
-     * 初始化tabItem
-     *
-     * @author Ruffian
+     * @param styleLinePadding
      */
-    private void initTabItem() {
+    public void setStyleLinePadding(int styleLinePadding) {
+        this.mStyleLinePadding = dip2px(getContext(), styleLinePadding);
+        /**
+         * 重绘指示器
+         */
+        mIndicatorWidth = mIndicatorWidth < 0 ? (getWidth() / mTabVisibleCount) - (mStyleLinePadding * 2) : mIndicatorWidth;
+        mIndicatorHeight = mIndicatorHeight < 0 ? getHeight() / 10 : mIndicatorHeight;
+        mRectF = new Rect(mStyleLinePadding, 0, mIndicatorWidth + mStyleLinePadding, mIndicatorHeight);
+        invalidate();
+    }
 
+    /**
+     * 设置tabItem
+     */
+    private void setTabItem() {
         if (mTabTitles != null && mTabTitles.size() > 0) {
             if (this.getChildCount() != 0) {
                 this.removeAllViews();
             }
-
             for (String title : mTabTitles) {
                 addView(createTextView(title));
+                measure(0, 0);
             }
 
             // 设置点击事件
@@ -428,8 +432,7 @@ public class RVPIndicator extends LinearLayout {
      *
      * @param position
      */
-    private void setHighLightTextView(int position) {
-
+    private void setSelectedTextView(int position) {
         for (int i = 0; i < getChildCount(); i++) {
             View view = getChildAt(i);
             if (view instanceof TextView) {
@@ -483,38 +486,44 @@ public class RVPIndicator extends LinearLayout {
      */
     private TextView createTextView(String text) {
         TextView tv = new TextView(getContext());
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         lp.width = getWidth() / mTabVisibleCount;
         tv.setGravity(Gravity.CENTER);
         tv.setTextColor(mTextColorNormal);
         tv.setText(text);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
         tv.setLayoutParams(lp);
         return tv;
     }
 
-    /**
-     * 对外的ViewPager的回调接口
-     *
-     * @author Ruffian
-     *
-     */
+
     public interface PageChangeListener {
-        void onPageScrolled(int position, float positionOffset,
-                            int positionOffsetPixels);
 
         void onPageSelected(int position);
 
         void onPageScrollStateChanged(int state);
+
+        void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
     }
 
-    // 对外的ViewPager的回调接口
+    public interface OnIndicatorSelected {
+        void setOnIndicatorSelected(int position, String title);
+    }
+
     private PageChangeListener onPageChangeListener;
 
-    // 对外的ViewPager的回调接口的设置
+    private OnIndicatorSelected mOnIndicatorSelected;
+
     public void setOnPageChangeListener(PageChangeListener pageChangeListener) {
         this.onPageChangeListener = pageChangeListener;
     }
 
+    public void setOnIndicatorSelected(OnIndicatorSelected mOnIndicatorSelected) {
+        this.mOnIndicatorSelected = mOnIndicatorSelected;
+    }
+
+    private int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
 }
