@@ -406,6 +406,7 @@ public class PageFactory {
         while (i < mbBufferLen) {
             b0 = mbBuff.get(i++);
             if (b0 == 0x0a) {
+                //oxoa  十六进制换行码   也就是换段落
                 break;
             }
         }

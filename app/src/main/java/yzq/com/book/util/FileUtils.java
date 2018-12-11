@@ -48,7 +48,7 @@ import yzq.com.book.Constant;
 public class FileUtils {
 
     public static String getChapterPath(String bookId, int chapter) {
-        return Constant.PATH_TXT + bookId + File.separator + chapter + ".txt";
+        return Constant.PATH_TXT + bookId + File.separator + chapter + ".txt";//File.separator  考虑跨平台  分隔符
     }
 
     public static File getChapterFile(String bookId, int chapter) {

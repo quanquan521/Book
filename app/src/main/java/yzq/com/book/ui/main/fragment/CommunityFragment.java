@@ -57,12 +57,6 @@ public class CommunityFragment extends CoreBaseFragment {
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
-        fragments.add( BookCaseFragment.newInstance());fragments.add(RankingListFragment.newInstance());fragments.add(SearchFragment.newInstance());
-        viewPager.setAdapter(new MyFragmentPagerAdapter(getFragmentManager(),fragments));
-         mDatas.add("1564565"); mDatas.add("2wwwww"); mDatas.add("2wwwww");
-        indicator.setTitleList(mDatas);
-        indicator.setViewPager(viewPager,0);
-
 
     }
 

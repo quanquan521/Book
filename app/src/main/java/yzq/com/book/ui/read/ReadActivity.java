@@ -135,7 +135,7 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
         });*/
     }
     private void initPagerWidget() {
-        switch (SharedPreferencesUtil.getInstance().getInt(Constant.FLIP_STYLE, 0)) {
+        switch (SharedPreferencesUtil.getInstance().getInt(Constant.FLIP_STYLE, 1)) {
             case 0:
                 mPageWidget = new PageWidget(this, bookId, mChapterList, new ReadListener());
                 break;

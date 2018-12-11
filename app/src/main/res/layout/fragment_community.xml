@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:rvp="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -28,8 +27,14 @@
         android:orientation="horizontal"
         android:id="@+id/indicator"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/colorPrimary"
+        app:indicator_color="@color/common_bg"
+        app:indicator_style="triangle"
+        app:item_count="3"
+        app:text_color_hightlight="@color/white"
+        app:text_color_normal="@color/light_gray"
+
         >
 
     </com.hpw.mvpframe.widget.RVPIndicator>

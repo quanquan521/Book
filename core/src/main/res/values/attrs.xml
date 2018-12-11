@@ -38,4 +38,16 @@
     <declare-styleable name="Themes">
         <attr name="tagGroupStyle" format="reference" />
     </declare-styleable>
+
+    <attr name="item_count" format="integer" />
+    <attr name="text_color_normal" format="color" />
+    <attr name="text_color_hightlight" format="color" />
+    <attr name="text_size" format="dimension" />
+    <attr name="indicator_color" format="color" />
+    <attr name="indicator_src" format="reference" />
+    <attr name="indicator_style">
+        <enum name="bitmap" value="0" />
+        <enum name="line" value="1" />
+        <enum name="triangle" value="2" />
+    </attr>
 </resources>
