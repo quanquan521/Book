@@ -4,13 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.ScrollView;
-
-import com.hpw.mvpframe.CoreApp;
-
-import yzq.com.book.App;
-import yzq.com.book.Constant;
 
 /**
  * Created by A on 2017/9/21.

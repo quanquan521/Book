@@ -29,7 +29,7 @@ import android.view.animation.LinearInterpolator;
  *
  * 创建日期：on 2018/10/22.
  *
- * 描述：
+ * 描述：仿QQ消息拖拽小球
  *
  *
  */

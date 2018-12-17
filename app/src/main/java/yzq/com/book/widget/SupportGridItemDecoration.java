@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package yzq.com.book.widget;
 
 import android.content.Context;
@@ -24,6 +25,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+/*
+*
+* recycleview  默认分割线
+* */
 
 public class SupportGridItemDecoration extends RecyclerView.ItemDecoration {
 

@@ -2,8 +2,6 @@ package yzq.com.book.ui.booklist;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,14 +23,12 @@ import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.bean.HotReview;
 import yzq.com.book.bean.Recommend;
-import yzq.com.book.manager.CacheManager;
 import yzq.com.book.manager.CollectionsManager;
 import yzq.com.book.ui.booklist.contract.BookListContract;
 import yzq.com.book.ui.booklist.model.BookDetailModel;
 import yzq.com.book.ui.booklist.presenter.BookDetailPresenter;
 import yzq.com.book.ui.read.ReadActivity;
 import yzq.com.book.widget.DrawableCenterButton;
-import yzq.com.book.widget.MyScrollView;
 
 public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailModel>implements BookListContract.BookDetailView{
     @BindView(R.id.ivBookCover)ImageView ivBookCover;
