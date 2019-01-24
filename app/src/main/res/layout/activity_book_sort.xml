@@ -28,13 +28,13 @@
             />
     </android.support.v7.widget.Toolbar>
 
-   <com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView
+   <com.yzq.mvpframe.widget.recyclerview.CoreRecyclerView
 
        android:background="@color/white"
        android:id="@+id/rv"
        android:layout_width="match_parent"
        android:layout_height="match_parent">
 
-   </com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView>
+   </com.yzq.mvpframe.widget.recyclerview.CoreRecyclerView>
 
 </LinearLayout>

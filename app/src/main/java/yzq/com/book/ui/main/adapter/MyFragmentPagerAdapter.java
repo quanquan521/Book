@@ -6,7 +6,7 @@ package yzq.com.book.ui.main.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.hpw.mvpframe.base.CoreBaseFragment;
+import com.yzq.mvpframe.base.CoreBaseFragment;
 
 import java.util.List;
 

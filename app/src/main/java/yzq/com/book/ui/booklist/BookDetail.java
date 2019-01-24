@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.hpw.mvpframe.base.CoreBaseActivity;
-import com.hpw.mvpframe.widget.GlideCircleTransform;
-import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
-import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
+import com.yzq.mvpframe.base.CoreBaseActivity;
+import com.yzq.mvpframe.widget.GlideCircleTransform;
+import com.yzq.mvpframe.widget.recyclerview.BaseQuickAdapter;
+import com.yzq.mvpframe.widget.recyclerview.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;

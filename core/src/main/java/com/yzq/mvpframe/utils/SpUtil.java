@@ -1,10 +1,10 @@
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.hpw.mvpframe.CoreConstants;
+import com.yzq.mvpframe.CoreConstants;
 
 
 

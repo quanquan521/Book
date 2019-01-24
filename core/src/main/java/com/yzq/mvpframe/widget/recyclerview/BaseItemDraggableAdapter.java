@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview;
+package com.yzq.mvpframe.widget.recyclerview;
 
 import android.graphics.Canvas;
 import android.support.annotation.NonNull;
@@ -8,9 +8,9 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.hpw.mvpframe.R;
-import com.hpw.mvpframe.widget.recyclerview.listener.OnItemDragListener;
-import com.hpw.mvpframe.widget.recyclerview.listener.OnItemSwipeListener;
+import com.yzq.mvpframe.R;
+import com.yzq.mvpframe.widget.recyclerview.listener.OnItemDragListener;
+import com.yzq.mvpframe.widget.recyclerview.listener.OnItemSwipeListener;
 
 import java.util.Collections;
 import java.util.List;

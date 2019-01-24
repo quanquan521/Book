@@ -1,5 +1,5 @@
 
-package com.hpw.mvpframe.widget;
+package com.yzq.mvpframe.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -23,7 +23,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hpw.mvpframe.R;
+import com.yzq.mvpframe.R;
 
 import java.util.ArrayList;
 import java.util.List;

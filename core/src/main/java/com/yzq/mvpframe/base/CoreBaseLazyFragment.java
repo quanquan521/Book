@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.base;
+package com.yzq.mvpframe.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

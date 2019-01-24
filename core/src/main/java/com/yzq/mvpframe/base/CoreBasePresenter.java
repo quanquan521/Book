@@ -1,6 +1,6 @@
-package com.hpw.mvpframe.base;
+package com.yzq.mvpframe.base;
 
-import com.hpw.mvpframe.RxManager;
+import com.yzq.mvpframe.RxManager;
 
 public abstract class CoreBasePresenter<M, T> {
     public M mModel;

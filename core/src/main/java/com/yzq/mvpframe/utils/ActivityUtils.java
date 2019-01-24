@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

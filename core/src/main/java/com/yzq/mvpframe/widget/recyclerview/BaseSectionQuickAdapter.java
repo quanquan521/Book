@@ -1,8 +1,8 @@
-package com.hpw.mvpframe.widget.recyclerview;
+package com.yzq.mvpframe.widget.recyclerview;
 
 import android.view.ViewGroup;
 
-import com.hpw.mvpframe.widget.recyclerview.entity.SectionEntity;
+import com.yzq.mvpframe.widget.recyclerview.entity.SectionEntity;
 
 import java.util.List;
 

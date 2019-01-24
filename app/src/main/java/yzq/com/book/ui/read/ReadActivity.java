@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
-import com.hpw.mvpframe.base.CoreBaseActivity;
+import com.yzq.mvpframe.base.CoreBaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

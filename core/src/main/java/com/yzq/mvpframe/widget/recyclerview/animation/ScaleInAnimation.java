@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.animation;
+package com.yzq.mvpframe.widget.recyclerview.animation;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;

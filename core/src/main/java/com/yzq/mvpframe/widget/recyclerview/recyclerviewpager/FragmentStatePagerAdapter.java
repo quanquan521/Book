@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.recyclerviewpager;
+package com.yzq.mvpframe.widget.recyclerview.recyclerviewpager;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hpw.mvpframe.R;
-import com.hpw.mvpframe.utils.LogUtil;
+import com.yzq.mvpframe.R;
+import com.yzq.mvpframe.utils.LogUtil;
 
 import java.util.HashSet;
 import java.util.Random;

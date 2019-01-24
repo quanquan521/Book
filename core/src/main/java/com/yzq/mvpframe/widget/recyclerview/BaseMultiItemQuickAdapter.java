@@ -1,10 +1,10 @@
-package com.hpw.mvpframe.widget.recyclerview;
+package com.yzq.mvpframe.widget.recyclerview;
 
 import android.support.annotation.LayoutRes;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
-import com.hpw.mvpframe.widget.recyclerview.entity.MultiItemEntity;
+import com.yzq.mvpframe.widget.recyclerview.entity.MultiItemEntity;
 
 import java.util.List;
 

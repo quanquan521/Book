@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.utils.helper;
+package com.yzq.mvpframe.utils.helper;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

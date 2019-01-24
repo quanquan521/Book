@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

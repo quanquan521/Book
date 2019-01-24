@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.listener;
+package com.yzq.mvpframe.widget.recyclerview.listener;
 
 import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;

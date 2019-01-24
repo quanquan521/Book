@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.entity;
+package com.yzq.mvpframe.widget.recyclerview.entity;
 
 public abstract class SectionEntity<T> {
     public boolean isHeader;

@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.data.net;
+package com.yzq.mvpframe.data.net;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;

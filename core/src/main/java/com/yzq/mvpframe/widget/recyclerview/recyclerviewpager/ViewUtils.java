@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.recyclerviewpager;
+package com.yzq.mvpframe.widget.recyclerview.recyclerviewpager;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

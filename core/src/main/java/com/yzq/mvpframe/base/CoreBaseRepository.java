@@ -1,6 +1,6 @@
-package com.hpw.mvpframe.base;
+package com.yzq.mvpframe.base;
 
-import com.hpw.mvpframe.data.repository.Repository;
+import com.yzq.mvpframe.data.repository.Repository;
 
 /**
  *   xml  仓库

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hpw.mvpframe.widget.recyclerview;
+package com.yzq.mvpframe.widget.recyclerview;
 
 import android.graphics.Bitmap;
 import android.graphics.Paint;

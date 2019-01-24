@@ -3,7 +3,7 @@ package yzq.com.book.ui.main.presenter;
  * Created by 无敌小圈圈
  */
 
-import com.hpw.mvpframe.utils.ErrorInfoUtils;
+import com.yzq.mvpframe.utils.ErrorInfoUtils;
 
 import io.reactivex.functions.Consumer;
 import yzq.com.book.bean.HotWord;

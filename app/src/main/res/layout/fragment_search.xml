@@ -69,13 +69,13 @@
                 android:drawablePadding="5dp"
                 android:text="换一批" />
         </RelativeLayout>
-        <com.hpw.mvpframe.widget.TagGroup
+        <com.yzq.mvpframe.widget.TagGroup
             android:layout_marginTop="10dp"
             android:id="@+id/tag_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </com.hpw.mvpframe.widget.TagGroup>
+        </com.yzq.mvpframe.widget.TagGroup>
         <RelativeLayout
             android:visibility="gone"
             android:layout_marginTop="10dp"

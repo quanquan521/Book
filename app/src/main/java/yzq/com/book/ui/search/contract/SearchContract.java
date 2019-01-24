@@ -1,8 +1,8 @@
 package yzq.com.book.ui.search.contract;
 
-import com.hpw.mvpframe.base.CoreBaseModel;
-import com.hpw.mvpframe.base.CoreBasePresenter;
-import com.hpw.mvpframe.base.CoreBaseView;
+import com.yzq.mvpframe.base.CoreBaseModel;
+import com.yzq.mvpframe.base.CoreBasePresenter;
+import com.yzq.mvpframe.base.CoreBaseView;
 
 import io.reactivex.Observable;
 import yzq.com.book.bean.SearchDetail;

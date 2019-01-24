@@ -1,7 +1,7 @@
-package com.hpw.mvpframe.data.net;
+package com.yzq.mvpframe.data.net;
 
-import com.hpw.mvpframe.CoreApp;
-import com.hpw.mvpframe.utils.NetUtils;
+import com.yzq.mvpframe.CoreApp;
+import com.yzq.mvpframe.utils.NetUtils;
 
 import java.io.IOException;
 

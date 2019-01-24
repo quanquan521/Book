@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hpw.mvpframe.R;
+import com.yzq.mvpframe.R;
 
 /**
  * 标题栏构造器,使用方法 new TitleBuilder().setMethod().setMethod()......

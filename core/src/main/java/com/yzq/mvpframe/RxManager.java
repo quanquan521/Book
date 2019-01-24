@@ -1,4 +1,4 @@
-package com.hpw.mvpframe;
+package com.yzq.mvpframe;
 
 import java.util.HashMap;
 import java.util.Map;

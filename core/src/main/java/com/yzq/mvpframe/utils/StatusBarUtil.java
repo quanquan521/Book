@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.hpw.mvpframe.widget.statusbar.StatusBarView;
+import com.yzq.mvpframe.widget.statusbar.StatusBarView;
 
 /**
  * Created by Jaeger on 16/2/14.

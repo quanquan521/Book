@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.recyclerviewpager;
+package com.yzq.mvpframe.widget.recyclerview.recyclerviewpager;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

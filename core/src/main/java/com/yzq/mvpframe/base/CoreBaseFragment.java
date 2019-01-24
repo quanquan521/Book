@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.base;
+package com.yzq.mvpframe.base;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.hpw.mvpframe.R;
-import com.hpw.mvpframe.utils.LogUtil;
-import com.hpw.mvpframe.utils.StatusBarUtil;
-import com.hpw.mvpframe.utils.TUtil;
-import com.hpw.mvpframe.utils.TitleBuilder;
-import com.hpw.mvpframe.utils.ToastUtils;
+import com.yzq.mvpframe.R;
+import com.yzq.mvpframe.utils.LogUtil;
+import com.yzq.mvpframe.utils.StatusBarUtil;
+import com.yzq.mvpframe.utils.TUtil;
+import com.yzq.mvpframe.utils.TitleBuilder;
+import com.yzq.mvpframe.utils.ToastUtils;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;

@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.listener;
+package com.yzq.mvpframe.widget.recyclerview.listener;
 
 import android.os.Build;
 import android.support.v4.view.GestureDetectorCompat;
@@ -7,16 +7,16 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
-import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
+import com.yzq.mvpframe.widget.recyclerview.BaseQuickAdapter;
+import com.yzq.mvpframe.widget.recyclerview.BaseViewHolder;
 
 import java.util.Iterator;
 import java.util.Set;
 
-import static com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter.EMPTY_VIEW;
-import static com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter.FOOTER_VIEW;
-import static com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter.HEADER_VIEW;
-import static com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter.LOADING_VIEW;
+import static com.yzq.mvpframe.widget.recyclerview.BaseQuickAdapter.EMPTY_VIEW;
+import static com.yzq.mvpframe.widget.recyclerview.BaseQuickAdapter.FOOTER_VIEW;
+import static com.yzq.mvpframe.widget.recyclerview.BaseQuickAdapter.HEADER_VIEW;
+import static com.yzq.mvpframe.widget.recyclerview.BaseQuickAdapter.LOADING_VIEW;
 
 /**
  * <p>

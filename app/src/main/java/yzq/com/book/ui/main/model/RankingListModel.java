@@ -3,8 +3,8 @@ package yzq.com.book.ui.main.model;
  * Created by 无敌小圈圈
  */
 
-import com.hpw.mvpframe.data.net.RxService;
-import com.hpw.mvpframe.utils.helper.RxUtil;
+import com.yzq.mvpframe.data.net.RxService;
+import com.yzq.mvpframe.utils.helper.RxUtil;
 
 import io.reactivex.Observable;
 import yzq.com.book.api.MainApi;

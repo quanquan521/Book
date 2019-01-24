@@ -13,9 +13,9 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.hpw.mvpframe.base.CoreBaseFragment;
-import com.hpw.mvpframe.widget.TagColor;
-import com.hpw.mvpframe.widget.TagGroup;
+import com.yzq.mvpframe.base.CoreBaseFragment;
+import com.yzq.mvpframe.widget.TagColor;
+import com.yzq.mvpframe.widget.TagGroup;
 
 import java.util.ArrayList;
 import java.util.List;

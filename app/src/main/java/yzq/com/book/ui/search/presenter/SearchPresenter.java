@@ -1,6 +1,6 @@
 package yzq.com.book.ui.search.presenter;
 
-import com.hpw.mvpframe.utils.ErrorInfoUtils;
+import com.yzq.mvpframe.utils.ErrorInfoUtils;
 
 import io.reactivex.functions.Consumer;
 import yzq.com.book.bean.SearchDetail;

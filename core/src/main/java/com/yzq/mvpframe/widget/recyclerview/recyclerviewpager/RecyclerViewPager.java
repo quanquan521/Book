@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.recyclerviewpager;
+package com.yzq.mvpframe.widget.recyclerview.recyclerviewpager;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import com.hpw.mvpframe.R;
+import com.yzq.mvpframe.R;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

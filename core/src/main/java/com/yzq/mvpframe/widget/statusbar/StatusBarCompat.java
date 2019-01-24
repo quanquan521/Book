@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.statusbar;
+package com.yzq.mvpframe.widget.statusbar;
 
 import android.app.Activity;
 import android.os.Build;

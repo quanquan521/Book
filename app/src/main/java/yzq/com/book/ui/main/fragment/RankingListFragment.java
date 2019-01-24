@@ -14,11 +14,11 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.hpw.mvpframe.base.CoreBaseFragment;
-import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
-import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
-import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
-import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
+import com.yzq.mvpframe.base.CoreBaseFragment;
+import com.yzq.mvpframe.widget.recyclerview.BaseQuickAdapter;
+import com.yzq.mvpframe.widget.recyclerview.BaseViewHolder;
+import com.yzq.mvpframe.widget.recyclerview.CoreRecyclerView;
+import com.yzq.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;

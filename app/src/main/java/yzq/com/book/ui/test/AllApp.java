@@ -1,6 +1,6 @@
 package yzq.com.book.ui.test;
 import android.os.Bundle;
-import com.hpw.mvpframe.base.CoreBaseActivity;
+import com.yzq.mvpframe.base.CoreBaseActivity;
 
 import yzq.com.book.R;
 

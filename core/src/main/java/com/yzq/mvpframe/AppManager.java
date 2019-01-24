@@ -1,4 +1,4 @@
-package com.hpw.mvpframe;
+package com.yzq.mvpframe;
 
 import android.app.Activity;
 import android.app.ActivityManager;

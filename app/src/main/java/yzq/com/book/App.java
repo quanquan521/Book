@@ -5,8 +5,8 @@ package yzq.com.book;
 
 import android.content.Context;
 
-import com.hpw.mvpframe.CoreApp;
-import com.hpw.mvpframe.utils.SpUtil;
+import com.yzq.mvpframe.CoreApp;
+import com.yzq.mvpframe.utils.SpUtil;
 import com.mob.MobSDK;
 
 import me.yokeyword.fragmentation.Fragmentation;

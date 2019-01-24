@@ -1,11 +1,11 @@
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 
-import com.hpw.mvpframe.R;
+import com.yzq.mvpframe.R;
 
 
 public class ThemeUtil {

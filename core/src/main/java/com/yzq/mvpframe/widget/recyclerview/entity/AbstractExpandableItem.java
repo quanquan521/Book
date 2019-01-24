@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview.entity;
+package com.yzq.mvpframe.widget.recyclerview.entity;
 
 import java.util.ArrayList;
 import java.util.List;

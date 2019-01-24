@@ -1,7 +1,7 @@
-package com.hpw.mvpframe.utils.helper;
+package com.yzq.mvpframe.utils.helper;
 
-import com.hpw.mvpframe.data.entity.CoreDataResponse;
-import com.hpw.mvpframe.data.net.CoreApiException;
+import com.yzq.mvpframe.data.entity.CoreDataResponse;
+import com.yzq.mvpframe.data.net.CoreApiException;
 
 import org.reactivestreams.Publisher;
 

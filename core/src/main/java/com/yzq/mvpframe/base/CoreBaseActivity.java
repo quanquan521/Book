@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.base;
+package com.yzq.mvpframe.base;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,17 +16,17 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.gyf.barlibrary.ImmersionBar;
-import com.hpw.mvpframe.AppManager;
-import com.hpw.mvpframe.BuildConfig;
-import com.hpw.mvpframe.R;
-import com.hpw.mvpframe.utils.LogUtil;
-import com.hpw.mvpframe.utils.SpUtil;
-import com.hpw.mvpframe.utils.StatusBarUtil;
-import com.hpw.mvpframe.utils.TUtil;
-import com.hpw.mvpframe.utils.ThemeUtil;
-import com.hpw.mvpframe.utils.TitleBuilder;
-import com.hpw.mvpframe.utils.ToastUtils;
-import com.hpw.mvpframe.widget.SwipeBackLayout;
+import com.yzq.mvpframe.AppManager;
+import com.yzq.mvpframe.BuildConfig;
+import com.yzq.mvpframe.R;
+import com.yzq.mvpframe.utils.LogUtil;
+import com.yzq.mvpframe.utils.SpUtil;
+import com.yzq.mvpframe.utils.StatusBarUtil;
+import com.yzq.mvpframe.utils.TUtil;
+import com.yzq.mvpframe.utils.ThemeUtil;
+import com.yzq.mvpframe.utils.TitleBuilder;
+import com.yzq.mvpframe.utils.ToastUtils;
+import com.yzq.mvpframe.widget.SwipeBackLayout;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;

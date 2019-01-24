@@ -1,6 +1,6 @@
-package com.hpw.mvpframe.data.repository;
+package com.yzq.mvpframe.data.repository;
 
-import com.hpw.mvpframe.base.CoreBaseRepository;
+import com.yzq.mvpframe.base.CoreBaseRepository;
 
 import java.util.Map;
 

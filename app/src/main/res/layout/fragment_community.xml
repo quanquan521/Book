@@ -23,7 +23,7 @@
             android:textSize="18sp"
             />
     </android.support.v7.widget.Toolbar>
-    <com.hpw.mvpframe.widget.RVPIndicator
+    <com.yzq.mvpframe.widget.RVPIndicator
         android:orientation="horizontal"
         android:id="@+id/indicator"
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
 
         >
 
-    </com.hpw.mvpframe.widget.RVPIndicator>
+    </com.yzq.mvpframe.widget.RVPIndicator>
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"

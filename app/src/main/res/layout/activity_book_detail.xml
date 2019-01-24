@@ -253,7 +253,7 @@
                     android:layout_margin="10dp"
                     android:background="@color/common_divider_narrow" />
 
-                <com.hpw.mvpframe.widget.TagGroup
+                <com.yzq.mvpframe.widget.TagGroup
                     android:id="@+id/tag_group"
                     style="@style/TagGroup"
                     android:layout_marginLeft="15dp"

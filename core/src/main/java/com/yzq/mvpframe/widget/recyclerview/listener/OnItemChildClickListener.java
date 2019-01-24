@@ -1,8 +1,8 @@
-package com.hpw.mvpframe.widget.recyclerview.listener;
+package com.yzq.mvpframe.widget.recyclerview.listener;
 
 import android.view.View;
 
-import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
+import com.yzq.mvpframe.widget.recyclerview.BaseQuickAdapter;
 
 /**
  * A convenience class to extend when you only want to OnItemChildClickListener for a subset

@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import android.content.Context;
 import android.text.TextPaint;
@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.text.style.ClickableSpan;
 import android.view.View;
 
-import com.hpw.mvpframe.R;
+import com.yzq.mvpframe.R;
 
 import java.text.DecimalFormat;
 import java.util.regex.Matcher;

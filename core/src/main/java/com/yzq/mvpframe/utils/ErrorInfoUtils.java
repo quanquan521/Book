@@ -1,8 +1,8 @@
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import com.google.gson.Gson;
-import com.hpw.mvpframe.data.entity.CoreDataResponse;
-import com.hpw.mvpframe.data.net.CoreErrorConstants;
+import com.yzq.mvpframe.data.entity.CoreDataResponse;
+import com.yzq.mvpframe.data.net.CoreErrorConstants;
 
 import java.net.UnknownHostException;
 

@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget;
+package com.yzq.mvpframe.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;

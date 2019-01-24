@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.data.entity;
+package com.yzq.mvpframe.data.entity;
 
 public class CoreDataResponse<T> {
     private int code;

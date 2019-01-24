@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.statusbar;
+package com.yzq.mvpframe.widget.statusbar;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

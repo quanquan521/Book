@@ -1,8 +1,8 @@
-package com.hpw.mvpframe;
+package com.yzq.mvpframe;
 
 import android.support.annotation.NonNull;
 
-import com.hpw.mvpframe.utils.LogUtil;
+import com.yzq.mvpframe.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

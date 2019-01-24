@@ -1,12 +1,12 @@
-package com.hpw.mvpframe.widget.recyclerview.callback;
+package com.yzq.mvpframe.widget.recyclerview.callback;
 
 import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
-import com.hpw.mvpframe.R;
-import com.hpw.mvpframe.widget.recyclerview.BaseItemDraggableAdapter;
+import com.yzq.mvpframe.R;
+import com.yzq.mvpframe.widget.recyclerview.BaseItemDraggableAdapter;
 
 public class ItemDragAndSwipeCallback extends ItemTouchHelper.Callback {
 

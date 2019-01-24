@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget.recyclerview;
+package com.yzq.mvpframe.widget.recyclerview;
 
 import android.animation.Animator;
 import android.content.Context;
@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.hpw.mvpframe.R;
-import com.hpw.mvpframe.widget.recyclerview.animation.BaseAnimation;
-import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
+import com.yzq.mvpframe.R;
+import com.yzq.mvpframe.widget.recyclerview.animation.BaseAnimation;
+import com.yzq.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
 /**
  * Created by hpw on 16/11/1.

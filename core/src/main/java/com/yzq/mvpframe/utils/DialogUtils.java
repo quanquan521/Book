@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.utils;
+package com.yzq.mvpframe.utils;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 
-import com.hpw.mvpframe.R;
+import com.yzq.mvpframe.R;
 
 /**
  * 对话框工具类, 提供常用对话框显示, 使用support.v7包内的AlertDialog样式

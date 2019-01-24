@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hpw.mvpframe.widget.recyclerview;
+package com.yzq.mvpframe.widget.recyclerview;
 
 import android.animation.Animator;
 import android.content.Context;
@@ -32,14 +32,14 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 
-import com.hpw.mvpframe.R;
-import com.hpw.mvpframe.widget.recyclerview.animation.AlphaInAnimation;
-import com.hpw.mvpframe.widget.recyclerview.animation.BaseAnimation;
-import com.hpw.mvpframe.widget.recyclerview.animation.ScaleInAnimation;
-import com.hpw.mvpframe.widget.recyclerview.animation.SlideInBottomAnimation;
-import com.hpw.mvpframe.widget.recyclerview.animation.SlideInLeftAnimation;
-import com.hpw.mvpframe.widget.recyclerview.animation.SlideInRightAnimation;
-import com.hpw.mvpframe.widget.recyclerview.entity.IExpandable;
+import com.yzq.mvpframe.R;
+import com.yzq.mvpframe.widget.recyclerview.animation.AlphaInAnimation;
+import com.yzq.mvpframe.widget.recyclerview.animation.BaseAnimation;
+import com.yzq.mvpframe.widget.recyclerview.animation.ScaleInAnimation;
+import com.yzq.mvpframe.widget.recyclerview.animation.SlideInBottomAnimation;
+import com.yzq.mvpframe.widget.recyclerview.animation.SlideInLeftAnimation;
+import com.yzq.mvpframe.widget.recyclerview.animation.SlideInRightAnimation;
+import com.yzq.mvpframe.widget.recyclerview.entity.IExpandable;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
