@@ -31,7 +31,7 @@
         android:background="@color/colorPrimary"
         app:indicator_color="@color/common_bg"
         app:indicator_style="triangle"
-        app:item_count="3"
+        app:item_count="2"
         app:text_color_hightlight="@color/white"
         app:text_color_normal="@color/light_gray"
 

@@ -58,7 +58,7 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
 
             }
         };
-        rv.init(adapter,true);
+        rv.init(adapter,false);
         setListner();
     }
 
@@ -108,8 +108,6 @@ public class BookListActivity extends CoreBaseActivity <BookListPresenter,BookLi
         list.addAll(bean.getBooks());
         adapter.notifyDataSetChanged();
         start+=bean.getBooks().size();
-        rv.hideLoadingMore();
-
     }
 
 

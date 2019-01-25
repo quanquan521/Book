@@ -68,8 +68,7 @@ public class MainActivity extends CoreBaseActivity{
                         showHideFragment(fragments.get(2));
                         break;
                     case R.id.community:
-                      // showHideFragment(fragments.get(3));
-                        startActivity(AllApp.class);
+                       showHideFragment(fragments.get(3));
                         break;
                 }
             }

@@ -59,6 +59,11 @@ public class ReadActivity extends CoreBaseActivity<BookReadPresenter,BookReadMod
 
 
     @Override
+    public boolean isOpen() {
+        return true;
+    }
+
+    @Override
     public int getLayoutId() {
         return R.layout.activity_read;
     }

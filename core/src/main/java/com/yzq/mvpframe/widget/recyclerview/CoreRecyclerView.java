@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.yzq.mvpframe.R;
 import com.yzq.mvpframe.widget.recyclerview.animation.BaseAnimation;
 import com.yzq.mvpframe.widget.recyclerview.listener.OnItemClickListener;
@@ -19,9 +22,9 @@ import com.yzq.mvpframe.widget.recyclerview.listener.OnItemClickListener;
  * Created by hpw on 16/11/1.
  */
 
-public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
+public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.RequestLoadMoreListener, OnRefreshListener {
     private RecyclerView mRecyclerView;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private SmartRefreshLayout mSwipeRefreshLayout;
     BaseQuickAdapter mQuickAdapter;
     addDataListener addDataListener;
 
@@ -47,10 +50,10 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
                 R.layout.layout_recyclerview, null);
         view.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+                ViewGroup.LayoutParams.MATCH_PARENT));
         addView(view);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeLayout);
-        mSwipeRefreshLayout.setEnabled(false);
+        mSwipeRefreshLayout = (SmartRefreshLayout) findViewById(R.id.swipeLayout);
+        mSwipeRefreshLayout.setEnableRefresh(false);
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_list);
         return this;
     }
@@ -61,21 +64,22 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
     }
 
     public CoreRecyclerView init(BaseQuickAdapter mQuickAdapter, Boolean isRefresh) {
-        init(null, mQuickAdapter, true);
+        init(null, mQuickAdapter, isRefresh);
         return this;
     }
 
     public CoreRecyclerView init(RecyclerView.LayoutManager layoutManager, BaseQuickAdapter mQuickAdapter) {
-        init(layoutManager, mQuickAdapter, true);
+        init(layoutManager, mQuickAdapter, false);
 
         return this;
     }
 
     public CoreRecyclerView init(RecyclerView.LayoutManager layoutManager, BaseQuickAdapter mQuickAdapter, Boolean isRefresh) {
         if (isRefresh != true) {
-            mSwipeRefreshLayout.setVisibility(GONE);
-            mRecyclerView = (RecyclerView) findViewById(R.id.rv_list1);
-            mRecyclerView.setVisibility(VISIBLE);
+            mSwipeRefreshLayout.setEnableRefresh(false);
+        }else {
+            mSwipeRefreshLayout.setEnableRefresh(true);
+            mSwipeRefreshLayout.setOnRefreshListener(this);
         }
         mRecyclerView.setLayoutManager(layoutManager != null ? layoutManager : new LinearLayoutManager(getContext()));
         this.mQuickAdapter = mQuickAdapter;
@@ -91,15 +95,14 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
     }
 
     @Override
-    public void onRefresh() {
+    public void onRefresh(RefreshLayout refreshLayout) {
         page = 0;
         mQuickAdapter.getData().clear();
         addDataListener.addData(1);
         mQuickAdapter.openLoadMore(mQuickAdapter.getPageSize());
         mQuickAdapter.removeAllFooterView();
-        mSwipeRefreshLayout.setRefreshing(false);
+        finishRefresh();
     }
-
     @Override
     public void onLoadMoreRequested() {
         mRecyclerView.post(() -> {
@@ -111,6 +114,7 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
                 mQuickAdapter.addFooterView(notLoadingView);
             } else {
                 addDataListener.addData(page);
+                hideLoadingMore();
             }
         });
         page += 1;
@@ -147,6 +151,10 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
 
     public CoreRecyclerView hideLoadingMore() {
         mQuickAdapter.hideLoadingMore();
+        return this;
+    }
+    public CoreRecyclerView overRefreshing() {
+       mSwipeRefreshLayout.finishRefresh();
         return this;
     }
 
@@ -248,10 +256,8 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
         return this;
     }
 
-    public CoreRecyclerView openRefresh() {
-        mSwipeRefreshLayout.setEnabled(true);
-        mSwipeRefreshLayout.setOnRefreshListener(this);
-        return this;
+    public void finishRefresh() {
+        mSwipeRefreshLayout.finishRefresh();
     }
 
     public RecyclerView getRecyclerView() {

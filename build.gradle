@@ -50,4 +50,5 @@ ext {
     butterknife='8.5.1'
     fragmentation='1.2.4'
     barlibrary='2.3.0'
+    smartrefresh='1.0.5.1'
 }

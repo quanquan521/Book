@@ -48,8 +48,7 @@ import yzq.com.book.ui.search.SearchActivity;
 public class CommunityFragment extends CoreBaseFragment {
     @BindView(R.id.indicator)RVPIndicator indicator;
     @BindView(R.id.viewPager)ViewPager viewPager;
-    List<String>mDatas=new ArrayList<>();
-    private List<CoreBaseFragment> fragments=new ArrayList();
+    private List<String>titles=new ArrayList<>();
     @Override
     public int getLayoutId() {
         return R.layout.fragment_community;
@@ -57,6 +56,10 @@ public class CommunityFragment extends CoreBaseFragment {
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
+
+
+
+
 
     }
 

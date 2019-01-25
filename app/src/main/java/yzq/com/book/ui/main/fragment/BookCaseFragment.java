@@ -69,11 +69,6 @@ public class BookCaseFragment extends CoreBaseFragment {
         return R.layout.fragment_bookcase;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        recyclerView.onRefresh();
-    }
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
@@ -100,10 +95,10 @@ public class BookCaseFragment extends CoreBaseFragment {
            public void addData(int page) {
               list.addAll(CollectionsManager.getInstance().getCollectionList());
               adapter.notifyDataSetChanged();
+
            }
        });
        recyclerView.openLoadAnimation();
-       recyclerView.openRefresh();
        View view= LayoutInflater.from(getContext()).inflate(R.layout.bookcase_emptyview,null,false);
        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
        recyclerView.setEmptyView(view);
