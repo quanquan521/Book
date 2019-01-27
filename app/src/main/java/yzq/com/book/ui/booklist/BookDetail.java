@@ -95,7 +95,7 @@ public class BookDetail extends CoreBaseActivity<BookDetailPresenter,BookDetailM
     }
 
     @Override
-    public void showBookDetail(yzq.com.book.ui.booklist.bean.BookDetail bean) {
+    public void showBookDetail(yzq.com.book.bean.BookDetail bean) {
         Glide.with(this).load(App.getInstance().setBaseResUrl()+bean.getCover()).into(ivBookCover);
         tvBookListTitle.setText(bean.getTitle());
         tvBookListAuthor.setText(bean.getAuthor()+"  |  ");

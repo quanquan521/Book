@@ -1,4 +1,4 @@
-package yzq.com.book.ui.main.bean;
+package yzq.com.book.bean;
 /**
  * Created by 无敌小圈圈
  */

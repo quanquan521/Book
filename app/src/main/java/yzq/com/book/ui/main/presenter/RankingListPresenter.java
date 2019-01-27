@@ -6,7 +6,7 @@ package yzq.com.book.ui.main.presenter;
 import com.yzq.mvpframe.utils.ErrorInfoUtils;
 
 import io.reactivex.functions.Consumer;
-import yzq.com.book.ui.main.bean.CategoryList;
+import yzq.com.book.bean.CategoryList;
 import yzq.com.book.ui.main.contract.MainContract;
 
 /**

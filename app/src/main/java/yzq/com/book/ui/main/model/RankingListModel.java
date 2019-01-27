@@ -8,7 +8,7 @@ import com.yzq.mvpframe.utils.helper.RxUtil;
 
 import io.reactivex.Observable;
 import yzq.com.book.api.MainApi;
-import yzq.com.book.ui.main.bean.CategoryList;
+import yzq.com.book.bean.CategoryList;
 import yzq.com.book.ui.main.contract.MainContract;
 
 /**

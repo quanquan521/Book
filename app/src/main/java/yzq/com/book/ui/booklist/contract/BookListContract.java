@@ -9,8 +9,8 @@ import com.yzq.mvpframe.base.CoreBaseView;
 
 import io.reactivex.Observable;
 import yzq.com.book.bean.HotReview;
-import yzq.com.book.ui.booklist.bean.BookDetail;
-import yzq.com.book.ui.booklist.bean.BooksByCats;
+import yzq.com.book.bean.BookDetail;
+import yzq.com.book.bean.BooksByCats;
 
 /**
  *

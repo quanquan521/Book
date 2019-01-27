@@ -10,7 +10,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -28,7 +27,7 @@ import yzq.com.book.App;
 import yzq.com.book.R;
 import yzq.com.book.ui.booklist.BookListActivity;
 import yzq.com.book.ui.main.adapter.SortFragmentTypeAdapter;
-import yzq.com.book.ui.main.bean.CategoryList;
+import yzq.com.book.bean.CategoryList;
 import yzq.com.book.ui.main.contract.MainContract;
 import yzq.com.book.ui.main.model.RankingListModel;
 import yzq.com.book.ui.main.presenter.RankingListPresenter;

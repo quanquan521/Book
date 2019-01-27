@@ -8,7 +8,7 @@ import com.yzq.mvpframe.utils.helper.RxUtil;
 
 import io.reactivex.Observable;
 import yzq.com.book.api.BookListApi;
-import yzq.com.book.ui.booklist.bean.BooksByCats;
+import yzq.com.book.bean.BooksByCats;
 import yzq.com.book.ui.booklist.contract.BookListContract;
 
 /**

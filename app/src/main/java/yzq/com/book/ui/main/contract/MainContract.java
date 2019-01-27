@@ -9,7 +9,7 @@ import com.yzq.mvpframe.base.CoreBaseView;
 
 import io.reactivex.Observable;
 import yzq.com.book.bean.HotWord;
-import yzq.com.book.ui.main.bean.CategoryList;
+import yzq.com.book.bean.CategoryList;
 
 /**
  *

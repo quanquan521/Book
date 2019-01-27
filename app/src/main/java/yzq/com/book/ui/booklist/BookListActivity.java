@@ -2,8 +2,6 @@ package yzq.com.book.ui.booklist;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,7 +17,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import yzq.com.book.App;
 import yzq.com.book.R;
-import yzq.com.book.ui.booklist.bean.BooksByCats;
+import yzq.com.book.bean.BooksByCats;
 import yzq.com.book.ui.booklist.contract.BookListContract;
 import yzq.com.book.ui.booklist.model.BookListModel;
 import yzq.com.book.ui.booklist.presenter.BookListPresenter;

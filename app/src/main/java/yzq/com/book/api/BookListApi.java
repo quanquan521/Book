@@ -8,8 +8,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import yzq.com.book.bean.HotReview;
-import yzq.com.book.ui.booklist.bean.BookDetail;
-import yzq.com.book.ui.booklist.bean.BooksByCats;
+import yzq.com.book.bean.BookDetail;
+import yzq.com.book.bean.BooksByCats;
 
 /**
  *

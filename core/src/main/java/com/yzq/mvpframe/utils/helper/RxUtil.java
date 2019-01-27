@@ -14,9 +14,6 @@ import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import rx.Observable.Transformer;
-import rx.Subscriber;
-
 public class RxUtil {
 
     /**

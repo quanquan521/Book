@@ -28,7 +28,7 @@ ext {
     buildToolsVersion = '27.0.2'
     minSdkVersion=19
     targetSdkVersion =26
-    constraint='1.0.2'
+    constraint='1.1.3'
     supportLibraryVersion = '27.1.1'
     guavaVersion = '18.0'
     junitVersion = '4.12'

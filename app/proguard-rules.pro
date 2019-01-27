@@ -149,39 +149,27 @@
 }
 
 
+# ==================v7===================
+-keep class android.support.v7.** { *; }
+# ==================v7===================
+# ==================constraint===================
+-keep interface android.support.constraint.** { *; }
+# ==================constraint===================
 
-#-支付宝混淆
--keep class com.alipay.android.app.IAlixPay{*;}
--keep class com.alipay.android.app.IAlixPay$Stub{*;}
--keep class com.alipay.android.app.IRemoteServiceCallback{*;}
--keep class com.alipay.android.app.IRemoteServiceCallback$Stub{*;}
--keep class com.alipay.sdk.app.PayTask{ public *;}
--keep class com.alipay.sdk.app.AuthTask{ public *;}
--keep class com.alipay.sdk.app.H5PayCallback {
-    <fields>;
-    <methods>;
-}
--keep class com.alipay.android.phone.mrpc.core.** { *; }
--keep class com.alipay.apmobilesecuritysdk.** { *; }
--keep class com.alipay.mobile.framework.service.annotation.** { *; }
--keep class com.alipay.mobilesecuritysdk.face.** { *; }
--keep class com.alipay.tscenter.biz.rpc.** { *; }
--keep class org.json.alipay.** { *; }
--keep class com.alipay.tscenter.** { *; }
--keep class com.ta.utdid2.** { *;}
--keep class com.ut.device.** { *;}
--dontwarn android.net.**
--keep class android.net.SSLCertificateSocketFactory{*;}
-#-微信混淆
 
--keep class com.tencent.mm.opensdk.** {
-   *;
+#=====================================================其他库=======================================================
+-keep class com.gyf.barlibrary.* {*;}
+#butterknife
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
 }
--keep class com.tencent.wxop.** {
-   *;
-}
--keep class com.tencent.mm.sdk.** {
-   *;
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
 }
 # glide 的混淆代码
 
@@ -190,139 +178,17 @@
   **[] $VALUES;
   public *;
 }
-
-# banner 的混淆代码
-
--keep class com.youth.banner.** {
-*;
-}
-# ==================picasso框架 start===============
--keep class com.parse.*{ *; }
--dontwarn com.parse.**
--dontwarn com.squareup.picasso.**
--keepclasseswithmembernames class * {
-    native <methods>;
-}
-# ==================picasso end====================
-
-
-# ==================ShareSDK===================
+# ShareSDK
 -keep class cn.sharesdk.**{*;}
 -keep class com.sina.**{*;}
 -keep class **.R$* {*;}
 -keep class **.R{*;}
 -keep class com.mob.**{*;}
--dontwarn com.mob.**
+-keep class m.framework.**{*;}
 -dontwarn cn.sharesdk.**
--dontwarn **.R$*0
-# ==================ShareSDK end=====================
-# ==================v7===================
--keep class android.support.v7.** { *; }
-# ==================v7===================
-# ==================constraint===================
--keep interface android.support.constraint.** { *; }
-# ==================constraint===================
-
-#友盟
--keep class com.umeng.commonsdk.** {*;}
--keepclassmembers class * {
-   public <init> (org.json.JSONObject);
-}
--keep public class [com.tengying.tengying].R$*{
-public static final int *;
-}
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
--dontwarn com.ut.mini.**
--dontwarn okio.**
--dontwarn com.xiaomi.**
--dontwarn com.squareup.wire.**
--dontwarn android.support.v4.**
-
--keepattributes *Annotation*
-
--keep class android.support.v4.** { *; }
--keep interface android.support.v4.app.** { *; }
-
--keep class okio.** {*;}
--keep class com.squareup.wire.** {*;}
-
--keep class com.umeng.message.protobuffer.* {
-	 public <fields>;
-         public <methods>;
-}
-
--keep class com.umeng.message.* {
-	 public <fields>;
-         public <methods>;
-}
-
--keep class org.android.agoo.impl.* {
-	 public <fields>;
-         public <methods>;
-}
-
--keep class org.android.agoo.service.* {*;}
-
--keep class org.android.spdy.**{*;}
-
--keep public class [com.tengying.tengying].R$*{
-    public static final int *;
-}
--dontwarn com.taobao.**
--dontwarn anet.channel.**
--dontwarn anetwork.channel.**
--dontwarn org.android.**
--dontwarn org.apache.thrift.**
--dontwarn com.xiaomi.**
--dontwarn com.huawei.**
-
--keepattributes *Annotation*
-
--keep class com.taobao.** {*;}
--keep class org.android.** {*;}
--keep class anet.channel.** {*;}
--keep class com.umeng.** {*;}
--keep class com.xiaomi.** {*;}
--keep class com.huawei.** {*;}
--keep class org.apache.thrift.** {*;}
-
--keep class com.alibaba.sdk.android.**{*;}
--keep class com.ut.**{*;}
--keep class com.ta.**{*;}
-
--keep public class **.R$*{
-   public static final int *;
-}
-
-#（可选）避免Log打印输出
--assumenosideeffects class android.util.Log {
-   public static *** v(...);
-   public static *** d(...);
-   public static *** i(...);
-   public static *** w(...);
- }
--dontwarn com.ta.**
--dontwarn com.umeng.**
-
-
-
-  # ==================百度 地图===================
-  -keep class com.** { *; }
-  -keep class vi.com.gdi.bgl.android.**{*;}
-  -dontwarn com.baidu.**
-
-   # ==================okhttp end=====================
-
-
-
-  #  json
- -keepclassmembers class * {
-          public <init>(org.json.JSONObject);
-      }
-
+-dontwarn com.sina.**
+-dontwarn com.mob.**
+-dontwarn **.R$*
 # RxJava +retrofit
 -dontwarn javax.annotation.**
 -dontwarn javax.inject.**
@@ -355,54 +221,7 @@ public static final int *;
 -keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
     rx.internal.util.atomic.LinkedQueueNode consumerNode;
 }
-
-
-#其他库
--keep class com.yuyh.**
--keep class com.zhy.**
--keep class com.github.gittjy.**
--keep class com.allenliu.badgeview.**
--keep class com.zmxy.**
--keep class com.google.zxing.**
--keep class q.rorbin.**
--keep class com.github.gittjy.**
--keep class com.gyf.barlibrary.* {*;}
-
-
-#权限
--dontwarn com.joker.api.**
--keep class com.joker.api.** {*;}
--keep interface com.joker.api.** { *; }
--keep class **$$PermissionsProxy { *; }
-#butterknife
--keep class butterknife.** { *; }
--dontwarn butterknife.internal.**
--keep class **$$ViewBinder { *; }
-
--keepclasseswithmembernames class * {
-    @butterknife.* <fields>;
-}
-
--keepclasseswithmembernames class * {
-    @butterknife.* <methods>;
-}
-# For retrolambda
--dontwarn java.lang.invoke.*
-
-#环信客服
--keep class com.hyphenate.** {*;}
--dontwarn  com.hyphenate.**
-
-#如添加华为push
-# Huawei push
--keep class com.huawei.android.pushagent.** {*;}
--keep class com.huawei.android.pushselfshow.** {*;}
--keep class com.huawei.android.microkernel.** {*;}
--keep class com.baidu.mapapi.** {*;}
--keep class com.hianalytics.android.** {*;}
--dontwarn com.huawei.android.pushagent.**
--dontwarn com.huawei.android.pushselfshow.**
--dontwarn com.huawei.android.microkernel.**
--dontwarn com.github.mikephil.charting.data.**
-#权限
--dontwarn com.yanzhenjie.permission.**
+#  不能混淆moudel  bean  反射类
+-keep class com.yzq.mvpframe.utils.TUtil
+-keep class * extends com.yzq.mvpframe.base.*{ *; }
+-keep class yzq.com.book.bean.*{ *; }
