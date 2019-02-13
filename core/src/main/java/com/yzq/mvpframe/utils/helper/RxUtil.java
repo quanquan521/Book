@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers;
 public class RxUtil {
 
     /**
-     * 统一线程处理
+     * 线程调度
      *
      * @param <T>
      * @return
