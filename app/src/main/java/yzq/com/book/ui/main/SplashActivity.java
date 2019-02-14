@@ -11,7 +11,10 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import yzq.com.book.R;
 import yzq.com.book.ui.main.MainActivity;
-
+/*
+*
+* 感觉有点茫然，不知道下一步做什么！
+* */
 public class SplashActivity extends CoreBaseActivity {
 
     @Override

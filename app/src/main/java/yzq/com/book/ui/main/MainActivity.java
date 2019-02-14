@@ -27,6 +27,8 @@ import yzq.com.book.ui.main.fragment.RankingListFragment;
 import yzq.com.book.ui.main.fragment.SearchFragment;
 import yzq.com.book.ui.test.AllApp;
 
+
+
 public class MainActivity extends CoreBaseActivity{
     @BindView(R.id.navigation_view)NavigationView navigationView;
     @BindView(R.id.drawerLayout)DrawerLayout drawerlayout;

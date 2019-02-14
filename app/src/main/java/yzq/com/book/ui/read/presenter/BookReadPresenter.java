@@ -57,6 +57,7 @@ public class BookReadPresenter extends BookReadContract.BookReadPresenter{
            @Override
            public void accept(Throwable throwable) throws Exception {
                mView.showError(ErrorInfoUtils.parseHttpErrorInfo(throwable));
+
            }
        }));
     }
