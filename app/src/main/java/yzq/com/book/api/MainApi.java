@@ -1,8 +1,4 @@
 package yzq.com.book.api;
-/**
- * Created by 无敌小圈圈
- */
-
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import yzq.com.book.bean.HotWord;
