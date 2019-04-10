@@ -7,6 +7,10 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.yzq.mvpframe.di.component.AppComponent;
+import com.yzq.mvpframe.di.component.DaggerAppComponent;
+import com.yzq.mvpframe.di.module.AppModule;
+
 
 public abstract class CoreApp extends Application {
     private static CoreApp mApp;
@@ -14,6 +18,7 @@ public abstract class CoreApp extends Application {
     public static int SCREEN_HEIGHT = -1;
     public static float DIMEN_RATE = -1.0F;
     public static int DIMEN_DPI = -1;
+    public static AppComponent appComponent;
 
     @Override
     public void onCreate() {
@@ -51,4 +56,13 @@ public abstract class CoreApp extends Application {
 
     public abstract String setBaseUrl();
     public abstract String setBaseResUrl();
+    public static AppComponent getAppComponent(){
+        if (appComponent == null) {
+            appComponent = DaggerAppComponent.builder()
+                    .appModule(new AppModule(mApp))
+                    .build();
+        }
+        return appComponent;
+    }
+
 }

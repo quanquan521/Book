@@ -66,6 +66,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         initParms(savedInstanceState);
         this.setContentView(this.getLayoutId());
         binder = ButterKnife.bind(this);
+        initDagger2();
         mContext = this;
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
@@ -81,10 +82,15 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     protected void onDestroy() {
         super.onDestroy();
         AppManager.getAppManager().finishActivity(this);
-        if (binder != null) binder.unbind();
-        if (mPresenter != null) mPresenter.detachVM();
+        if (binder != null) {
+            binder.unbind();
+        }
+        if (mPresenter != null) {
+            mPresenter.detachVM();
+        }
     }
 
+    @Override
     public void onPause() {
         super.onPause();
     }
@@ -209,11 +215,12 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         ToastUtils.showToast(this, msg, Toast.LENGTH_SHORT);
     }
 
+    /*
+    *
+    * dagger2 注入
+    * */
+    public  void initDagger2(){
 
-    /**
-     * @param msg  显示信息
-     * @param b  返回是否取消
-     */
-   /* public abstract void showLoadingDialog(String msg,boolean b);
-    public abstract void dissmissLoadingDialog();*/
+    }
+    /* public abstract void dissmissLoadingDialog();*/
 }
