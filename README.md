@@ -1,2 +1,2 @@
 # Book
-MVP+Retrofit+Rxjava
+MVP+Retrofit+Rxjava+Dagger2
