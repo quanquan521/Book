@@ -5,6 +5,8 @@ package yzq.com.book.ui.read.presenter;
 
 import com.yzq.mvpframe.utils.ErrorInfoUtils;
 
+import javax.inject.Inject;
+
 import io.reactivex.functions.Consumer;
 import yzq.com.book.bean.BookMixAToc;
 import yzq.com.book.bean.ChapterRead;

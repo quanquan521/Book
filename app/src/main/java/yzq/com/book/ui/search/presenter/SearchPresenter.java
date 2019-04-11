@@ -2,6 +2,8 @@ package yzq.com.book.ui.search.presenter;
 
 import com.yzq.mvpframe.utils.ErrorInfoUtils;
 
+import javax.inject.Inject;
+
 import io.reactivex.functions.Consumer;
 import yzq.com.book.bean.SearchDetail;
 import yzq.com.book.ui.search.contract.SearchContract;

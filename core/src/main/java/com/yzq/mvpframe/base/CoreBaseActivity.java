@@ -222,5 +222,5 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     public  void initDagger2(){
 
     }
-    /* public abstract void dissmissLoadingDialog();*/
+
 }

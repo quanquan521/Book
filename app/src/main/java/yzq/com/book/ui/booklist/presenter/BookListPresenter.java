@@ -5,6 +5,8 @@ package yzq.com.book.ui.booklist.presenter;
 
 import com.yzq.mvpframe.utils.ErrorInfoUtils;
 
+import javax.inject.Inject;
+
 import io.reactivex.functions.Consumer;
 import yzq.com.book.bean.BooksByCats;
 import yzq.com.book.ui.booklist.contract.BookListContract;
@@ -24,6 +26,7 @@ import yzq.com.book.ui.booklist.contract.BookListContract;
  *
  */
 public class BookListPresenter extends BookListContract.BookListPresenter {
+
     @Override
     public void onStart() {
 

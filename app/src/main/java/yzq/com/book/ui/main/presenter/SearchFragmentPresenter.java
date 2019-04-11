@@ -5,6 +5,8 @@ package yzq.com.book.ui.main.presenter;
 
 import com.yzq.mvpframe.utils.ErrorInfoUtils;
 
+import javax.inject.Inject;
+
 import io.reactivex.functions.Consumer;
 import yzq.com.book.bean.HotWord;
 import yzq.com.book.ui.main.contract.MainContract;
