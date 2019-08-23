@@ -40,16 +40,9 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
+
                 <RadioButton
                     android:checked="true"
-                    android:id="@+id/bookCase"
-                    android:text="书架"
-                    android:gravity="center"
-                    android:button="@null"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-                <RadioButton
                     android:id="@+id/rankingList"
                     android:text="分类"
                     android:gravity="center"
@@ -74,6 +67,14 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"  />
+                <RadioButton
+                    android:id="@+id/bookCase"
+                    android:text="我的"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
 
             </RadioGroup>
             <View

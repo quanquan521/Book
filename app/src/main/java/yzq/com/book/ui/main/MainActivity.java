@@ -55,7 +55,7 @@ public class MainActivity extends CoreBaseActivity{
     @Override
     public void initView(Bundle savedInstanceState) {
         fragments.add( BookCaseFragment.newInstance());fragments.add(RankingListFragment.newInstance());fragments.add(SearchFragment.newInstance());fragments.add(CommunityFragment.newInstance());
-        loadMultipleRootFragment(R.id.fragmentContainner,0,fragments.get(0),fragments.get(1),fragments.get(2),fragments.get(3) );
+        loadMultipleRootFragment(R.id.fragmentContainner,1,fragments.get(0),fragments.get(1),fragments.get(2),fragments.get(3) );
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {

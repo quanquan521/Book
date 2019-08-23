@@ -26,6 +26,7 @@ import yzq.com.book.ui.main.contract.MainContract;
  *
  */
 public class RankingListModel implements MainContract.MainModel {
+
     @Override
     public Observable<CategoryList> getSort() {
         return RxService.createApi(MainApi.class).getCategoryList().compose(RxUtil.rxSchedulerHelper());
